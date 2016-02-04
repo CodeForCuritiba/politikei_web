@@ -21,6 +21,8 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         .icon("phone", "./assets/svg/phone.svg", 512);
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('brown')
+        .primaryPalette('teal', {
+            'default': '900',
+        })
         .accentPalette('red');
 });

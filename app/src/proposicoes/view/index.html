@@ -13,8 +13,12 @@
             <p>{{proposicao.ementa}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
-            <button class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="Curtir"><span class="ng-scope">Curti</span></button>
-            <button class="md-raised md-warn md-button md-ink-ripple" type="button" aria-label="Não Curtir"><span class="ng-scope">Não curti</span></button>
+            <md-button class="md-icon-button" ng-click="someFunc()">
+                <i class="material-icons">thumb_up</i>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="someFunc()">
+                <i class="material-icons">thumb_down</i>
+            </md-button>
         </md-card-actions>
     </md-card>
 </div>

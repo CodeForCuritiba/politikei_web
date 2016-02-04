@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="assets/app.css" />
     <style type="text/css">
@@ -27,7 +28,24 @@
 </head>
 
 <body ng-app="politikei" ng-cloak>
-    <div ui-view></div>
+    <div layout="column" layout-fill>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="someFunc()">
+                    <i class="material-icons">menu</i>
+                </md-button>
+                <h2>Politikei</h2>
+                <!-- fill up the space between left and right area -->
+                <span flex></span>
+                 <md-button class="md-icon-button" ng-click="someFunc()">
+                    <i class="material-icons">help</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <div ui-view></div>
+        </md-content>
+    </div>
     <!-- Bower components -->
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
