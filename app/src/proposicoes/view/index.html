@@ -1,0 +1,20 @@
+<div layout="column" layout-align="center">
+    <md-card flex="50" ng-repeat="proposicao in proposicoes.proposicoes">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{proposicao.tipo}}</span>
+                <span class="md-subhead">{{proposicao.descricao}} {{proposicao.codigo}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"></div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-content>
+            <p>{{proposicao.ementa}}</p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
+            <button class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="Curtir"><span class="ng-scope">Curti</span></button>
+            <button class="md-raised md-warn md-button md-ink-ripple" type="button" aria-label="Não Curtir"><span class="ng-scope">Não curti</span></button>
+        </md-card-actions>
+    </md-card>
+</div>
