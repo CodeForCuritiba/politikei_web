@@ -1,24 +1,46 @@
-<div layout="column" layout-align="center">
-    <md-card flex="50" ng-repeat="proposicao in proposicoes.proposicoes">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{proposicao.tipo}}</span>
-                <span class="md-subhead">{{proposicao.descricao}} {{proposicao.codigo}}</span>
-            </md-card-title-text>
-            <md-card-title-media>
-                <div class="md-media-sm card-media"></div>
-            </md-card-title-media>
-        </md-card-title>
-        <md-card-content>
-            <p>{{proposicao.ementa}}</p>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
-            <md-button class="md-icon-button" ng-click="someFunc()">
-                <i class="material-icons">thumb_up</i>
+<div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes">
+    <div layout-padding>
+        <div layout="row">
+            <div class="md-media-sm">
+                <img src="{{proposicao.avatar_url}}" class="avatar" />
+            </div>
+            <div layout="column" class="proposicao-header">
+                <span class="md-title">{{proposicao.descricao}}</span>
+                <span class="md-caption">{{proposicao.tipo}} {{proposicao.codigo}}</span>
+                <pspan class="md-caption">Autor: {{proposicao.iniciativa}}</span>
+            </div>
+            <span flex></span>
+            <div>
+                <span class="md-caption">04/02/2016</span>
+            </div>
+        </div>
+        <md-card>
+            <md-card-content>
+                <p>{{proposicao.resumo}}</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
+            </md-card-actions>
+        </md-card>
+        <div layout="row" layout-align="begin center">
+            <md-button class="md-primary" ng-click="someFunc()">
+                <span class="md-caption"> A favor
+                <md-icon class="thumb-up-btn">thumb_up</md-icon>
+                </span>
             </md-button>
-            <md-button class="md-icon-button" ng-click="someFunc()">
-                <i class="material-icons">thumb_down</i>
+            <md-button class="md-accent" ng-click="someFunc()">
+                <span class="md-caption">
+                Contra
+                <md-icon class="thumb-down-btn">thumb_down</md-icon>
+                </span>
             </md-button>
-        </md-card-actions>
-    </md-card>
+            <span flex></span>
+            <md-button ng-click="someFunc()">
+                <span class="md-caption">
+                Limpar meu voto
+                <md-icon>highlight_off</md-icon>
+                </span>
+            </md-button>
+        </div>
+    </div>
+    <span layout="row"><hr class="proposicao-divisor" flex/></span>
 </div>

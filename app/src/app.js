@@ -22,7 +22,7 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
 
     $mdThemingProvider.theme('default')
         .primaryPalette('teal', {
-            'default': '900',
+            'default': '700',
         })
         .accentPalette('red');
 });
