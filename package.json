@@ -11,16 +11,18 @@
     }
   ],
   "dependencies": {
+    "bower": "^1.7.7",
     "express": "^4.13.4",
-    "bower": "^1.7.7"
+    "mongodb": "^2.1.7"
   },
   "devDependencies": {
-    "karma": "~0.10",
-    "protractor": "^2.0.0",
+    "gulp": "^3.9.1",
     "http-server": "^0.6.1",
-    "shelljs": "^0.2.6",
+    "karma": "~0.10",
     "karma-junit-reporter": "^0.2.2",
-    "selenium-webdriver": "^2.45.1"
+    "protractor": "^2.0.0",
+    "selenium-webdriver": "^2.45.1",
+    "shelljs": "^0.2.6"
   },
   "scripts": {
     "start": "node index.js",

@@ -1,52 +1,39 @@
 (function() {
     'use strict';
 
-    angular.module('proposicoes')
-        .service('proposicaoService', ['$q', ProposicaoService]);
+    var proposicoes = angular.module('proposicoes');
 
-    function ProposicaoService($q) {
-        var proposicoes = [{
-            id: 1,
-            tipo: 'PDL',
-            descricao: 'Prêmio Papa João Paulo II',
-            codigo: '016.00001.2015',
-            ementa: 'Concede o Prêmio Papa João Paulo II ao PADRE ALCEU ZEMBRUSKI e OUTROS que se destacaram no ano de 2015.',
-            resumo: 'Concede o Prêmio Papa João Paulo II ao PADRE ALCEU ZEMBRUSKI e OUTROS que se destacaram no ano de 2015.',
-            iniciativa: 'Comissão de Educação, Cultura e Turismo',
-            avatar_url: './assets/img/default_avatar.png'
-        }, {
-            id: 2,
-            tipo: 'PLO',
-            descricao: 'Declaração de Utilidade Pública',
-            codigo: '014.00013.2015',
-            ementa: 'Declara de Utilidade Pública a ACVD MaisMarias (Associação de Combate A Violência Doméstica MaisMarias).',
-            resumo: 'Concede o Prêmio Papa João Paulo II ao PADRE ALCEU ZEMBRUSKI e OUTROS que se destacaram no ano de 2015.',
-            iniciativa: 'Jonny Stica',
-            avatar_url: './assets/img/default_avatar.png'
-        }, {
-            id: 3,
-            tipo: 'PLO',
-            descricao: 'Declaração de Utilidade Pública',
-            codigo: '014.00013.2015',
-            ementa: 'Declara de Utilidade Pública a ACVD MaisMarias (Associação de Combate A Violência Doméstica MaisMarias).',
-            resumo: 'Concede o Prêmio Papa João Paulo II ao PADRE ALCEU ZEMBRUSKI e OUTROS que se destacaram no ano de 2015.',
-            iniciativa: 'Jonny Stica',
-            avatar_url: './assets/img/default_avatar.png'
-        }, {
-            id: 4,
-            tipo: 'PLO',
-            descricao: 'Declaração de Utilidade Pública',
-            codigo: '014.00013.2015',
-            ementa: 'Declara de Utilidade Pública a ACVD MaisMarias (Associação de Combate A Violência Doméstica MaisMarias).',
-            resumo: 'Concede o Prêmio Papa João Paulo II ao PADRE ALCEU ZEMBRUSKI e OUTROS que se destacaram no ano de 2015.',
-            iniciativa: 'Jonny Stica',
-            avatar_url: './assets/img/default_avatar.png'
-        }];
+    proposicoes.service('proposicaoService', ['$http', 'userService', ProposicaoService]);
 
+    function ProposicaoService($http, $userService) {
         // Promise-based API
         return {
             loadAllProposicoes: function() {
-                return $q.when(proposicoes);
+                var user_id = $userService.get();
+                return $http({
+                    method: 'GET',
+                    url: 'http://localhost:8080/politikei_api/api/v1/proposicoes/' + user_id + '?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDgwXC9wb2xpdGlrZWlfYXBpXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTU4MDkxMywiZXhwIjoxNDU1NTg0NTEzLCJuYmYiOjE0NTU1ODA5MTMsImp0aSI6IjA3MGIwMWNiN2Q3YzNhYWU1NWNmNmMwY2I3MjMxYWY0In0.A_4Sq_UUccgUtQRY4E-i2fhhBdLzRCBG3kM99EBWtOU'
+                }).then(function successCallback(response) {
+                    $userService.save(response.data.user);
+
+                    var proposicoes = [];
+                    angular.forEach(response.data.proposicoes, function(value, key) {
+                        var proposicao = {
+                            id: value.id,
+                            tipo: value.tipo,
+                            descricao: value.tipo_descricao,
+                            codigo: value.nome,
+                            ementa: value.ementa,
+                            resumo: value.resumo,
+                            iniciativa: 'Autor teste',
+                            avatar_url: './assets/img/default_avatar.png'
+                        };
+
+                        this.push(proposicao);
+                    }, proposicoes);
+
+                    return proposicoes;
+                });
             }
         };
     }

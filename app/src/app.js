@@ -1,4 +1,4 @@
-var politikei = angular.module('politikei', ['ui.router', 'proposicoes']);
+var politikei = angular.module('politikei', ['ui.router', 'proposicoes', 'ngCookies']);
 
 politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
 
