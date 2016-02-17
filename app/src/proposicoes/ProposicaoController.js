@@ -13,11 +13,14 @@
             self.votar_favor = votar_favor;
             self.votar_contra = votar_contra;
 
+            self.loaded = false;
+
             proposicaoService
                 .loadAllProposicoes()
                 .then(function(proposicoes) {
                     self.proposicoes = [].concat(proposicoes);
                     self.selected = proposicoes[0];
+                    self.loaded = true;
                 });
 
 
