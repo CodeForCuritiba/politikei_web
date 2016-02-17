@@ -29,3 +29,24 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
 
 
 politikei.constant('app_config', config);
+
+
+politikei.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
+    $scope.status = '  ';
+    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.showAlert = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+            $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Sobre o Politikei')
+            .textContent('Esta é a versão web do Politikei')
+            .ariaLabel('Sobre o Politikei')
+            .ok('Entendi!')
+            .targetEvent(ev)
+        );
+    }
+});
