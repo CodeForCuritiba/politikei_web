@@ -3,19 +3,21 @@
 
     var proposicoes = angular.module('proposicoes');
 
-    proposicoes.service('proposicaoService', ['$http', 'userService', ProposicaoService]);
+    proposicoes.service('proposicaoService', ['$http', 'userService', 'app_config', ProposicaoService]);
 
-    function ProposicaoService($http, $userService) {
+    var token = '';
+    var server = '';
+
+    function ProposicaoService($http, $userService, app_config) {
         // Promise-based API
         return {
             loadAllProposicoes: function() {
                 var user_id = $userService.get();
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:8080/politikei_api/api/v1/proposicoes/' + user_id + '?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDgwXC9wb2xpdGlrZWlfYXBpXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTU4MDkxMywiZXhwIjoxNDU1NTg0NTEzLCJuYmYiOjE0NTU1ODA5MTMsImp0aSI6IjA3MGIwMWNiN2Q3YzNhYWU1NWNmNmMwY2I3MjMxYWY0In0.A_4Sq_UUccgUtQRY4E-i2fhhBdLzRCBG3kM99EBWtOU'
+                    url: app_config.server + '/api/v1/proposicoes/' + user_id + '?token=' + app_config.token
                 }).then(function successCallback(response) {
                     $userService.save(response.data.user);
-
                     var proposicoes = [];
                     angular.forEach(response.data.proposicoes, function(value, key) {
                         var proposicao = {
@@ -25,8 +27,11 @@
                             codigo: value.nome,
                             ementa: value.ementa,
                             resumo: value.resumo,
-                            iniciativa: 'Autor teste',
-                            avatar_url: './assets/img/default_avatar.png'
+                            iniciativa: value.parlamentar.nome,
+                            avatar_url: value.parlamentar.avatar_url,
+                            votos_favor: value.votos_favor,
+                            votos_contra: value.votos_contra,
+                            voto_usuario: value.voto_usuario
                         };
 
                         this.push(proposicao);
@@ -34,8 +39,16 @@
 
                     return proposicoes;
                 });
+            },
+            votar: function(voto, id) {
+                var user_id = $userService.get();
+                return $http({
+                    method: 'POST',
+                    url: app_config.server + '/api/v1/proposicoes/votar/' + id + '?user_id=' + user_id + '&voto_usuario=' + voto + '&token=' + app_config.token
+                })
             }
         };
+
     }
 
 })();

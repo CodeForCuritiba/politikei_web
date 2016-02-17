@@ -137,3 +137,11 @@ button md-icon {
     margin: 1em 0;
     padding: 0;
 }
+
+.proposicao md-card.favor {
+    border-left: thick solid green;
+}
+
+.proposicao md-card.contra {
+    border-left: thick solid red;
+}

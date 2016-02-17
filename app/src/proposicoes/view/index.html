@@ -14,32 +14,31 @@
                 <span class="md-caption">04/02/2016</span>
             </div>
         </div>
-        <md-card>
+        <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
             <md-card-content>
                 <p>{{proposicao.resumo}}</p>
             </md-card-content>
             <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
             </md-card-actions>
         </md-card>
-        <div layout="row" layout-align="begin center">
-            <md-button class="md-primary" ng-click="someFunc()">
-                <span class="md-caption"> A favor
+        <div layout="column" layout-align="begin begin">
+            <div layout="row" layout-align="begin center" layout-margin>
+                <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
+            </div>
+            <div>
+                <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)">
+                    <span class="md-caption"> A favor
                 <md-icon class="thumb-up-btn">thumb_up</md-icon>
                 </span>
-            </md-button>
-            <md-button class="md-accent" ng-click="someFunc()">
-                <span class="md-caption">
+                </md-button>
+                <md-button class="md-accent" ng-click="proposicoes.votar_contra(proposicao)">
+                    <span class="md-caption">
                 Contra
                 <md-icon class="thumb-down-btn">thumb_down</md-icon>
                 </span>
-            </md-button>
+                </md-button>
+            </div>
             <span flex></span>
-            <md-button ng-click="someFunc()">
-                <span class="md-caption">
-                Limpar meu voto
-                <md-icon>highlight_off</md-icon>
-                </span>
-            </md-button>
         </div>
     </div>
     <span layout="row"><hr class="proposicao-divisor" flex/></span>

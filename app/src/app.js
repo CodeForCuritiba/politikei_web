@@ -26,3 +26,6 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         })
         .accentPalette('red');
 });
+
+
+politikei.constant('app_config', config);
