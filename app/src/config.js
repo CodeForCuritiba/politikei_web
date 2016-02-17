@@ -1,4 +1,4 @@
 var config = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDgwXC9wb2xpdGlrZWlfYXBpXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTY3MDIzNCwiZXhwIjoxNDU1NjczODM0LCJuYmYiOjE0NTU2NzAyMzQsImp0aSI6ImRmMTE0ZWQyZTU1MzM3ZjRlODQwZGU3OGNkMzE4M2U4In0.unk_bt8wIvAoeBNPdD8ExcQP5AnLwJK4QgbLBjVISkY',
-    server: 'http://localhost:8080/politikei_api'
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwMiwiaXNzIjoiaHR0cDpcL1wvcG9saXRpa2VpLWFwaS5oZXJva3VhcHAuY29tXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTY3MTE2NywiZXhwIjoxNDU1Njc0NzY3LCJuYmYiOjE0NTU2NzExNjcsImp0aSI6ImUzYTExZWU0MWUzNDc5MzNiYzM0NDI2ZDZlMjJkYmU2In0.xt6Odv7gxCU2OcB8Zvld1iVhsx0GHjx6N1QQ1QwAibk',
+    server: 'http://politikei-api.herokuapp.com/'
 };
