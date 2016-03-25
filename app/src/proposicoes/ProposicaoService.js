@@ -15,7 +15,7 @@
                 var user_id = $userService.get();
                 return $http({
                     method: 'GET',
-                    url: app_config.server + '/api/v1/proposicoes/' + user_id + '?token=' + app_config.token
+                    url: app_config.server + '/proposicoes/' + user_id + '?token=' + app_config.token
                 }).then(function successCallback(response) {
                     $userService.save(response.data.user);
                     return response.data.proposicoes;
@@ -25,7 +25,7 @@
                 var user_id = $userService.get();
                 return $http({
                     method: 'POST',
-                    url: app_config.server + '/api/v1/proposicoes/votar/' + id + '?user_id=' + user_id + '&voto_usuario=' + voto + '&token=' + app_config.token
+                    url: app_config.server + '/proposicoes/votar/' + id + '?user_id=' + user_id + '&voto_usuario=' + voto + '&token=' + app_config.token
                 })
             }
         };
