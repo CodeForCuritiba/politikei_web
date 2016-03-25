@@ -12,22 +12,14 @@
   ],
   "dependencies": {
     "bower": "^1.7.7",
-    "express": "^4.13.4",
-    "mongodb": "^2.1.7"
+    "express": "^4.13.4"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "http-server": "^0.6.1",
-    "karma": "~0.10",
-    "karma-junit-reporter": "^0.2.2",
-    "protractor": "^2.0.0",
-    "selenium-webdriver": "^2.45.1",
-    "shelljs": "^0.2.6"
+    "gulp": "^3.9.1"
   },
   "scripts": {
     "start": "node index.js",
     "prestart": "npm update",
-    "postinstall": "bower cache clean && bower install",
-    "test": "protractor ./e2e/protractor.conf.js"
+    "postinstall": "bower cache clean && bower install"
   }
 }

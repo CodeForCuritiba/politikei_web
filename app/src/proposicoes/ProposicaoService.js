@@ -18,26 +18,7 @@
                     url: app_config.server + '/api/v1/proposicoes/' + user_id + '?token=' + app_config.token
                 }).then(function successCallback(response) {
                     $userService.save(response.data.user);
-                    var proposicoes = [];
-                    angular.forEach(response.data.proposicoes, function(value, key) {
-                        var proposicao = {
-                            id: value.id,
-                            tipo: value.tipo,
-                            descricao: value.tipo_descricao,
-                            codigo: value.nome,
-                            ementa: value.ementa,
-                            resumo: value.resumo,
-                            iniciativa: value.parlamentar.nome,
-                            avatar_url: value.parlamentar.avatar_url,
-                            votos_favor: value.votos_favor,
-                            votos_contra: value.votos_contra,
-                            voto_usuario: value.voto_usuario
-                        };
-
-                        this.push(proposicao);
-                    }, proposicoes);
-
-                    return proposicoes;
+                    return response.data.proposicoes;
                 });
             },
             votar: function(voto, id) {
@@ -48,7 +29,6 @@
                 })
             }
         };
-
     }
 
 })();

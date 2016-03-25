@@ -4,16 +4,22 @@
     </div>
 </div>
 <div ng-if="proposicoes.loaded">
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Projetos de Lei">
+        </md-tab>
+        <md-tab label="Requerimentos">
+        </md-tab>
+    </md-tabs>
     <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes">
         <div layout-padding>
             <div layout="row">
                 <div class="md-media-sm">
-                    <img src="{{proposicao.avatar_url}}" class="avatar" />
+                    <img src="{{proposicao.parlamentar.avatar_url}}" class="avatar" />
                 </div>
                 <div layout="column" class="proposicao-header">
-                    <span class="md-title">{{proposicao.descricao}}</span>
-                    <span class="md-caption">{{proposicao.tipo}} {{proposicao.codigo}}</span>
-                    <pspan class="md-caption">Autor: {{proposicao.iniciativa}}</span>
+                    <span class="md-title">{{proposicao.tipo_descricao}}</span>
+                    <span class="md-caption">{{proposicao.tipo}} {{proposicao.nome}}</span>
+                    <pspan class="md-caption">Autor: {{proposicao.parlamentar.nome}}</span>
                 </div>
                 <span flex></span>
                 <div>
