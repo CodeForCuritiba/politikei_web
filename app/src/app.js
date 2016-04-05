@@ -24,7 +24,10 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         .primaryPalette('teal', {
             'default': '700',
         })
-        .accentPalette('red');
+        .accentPalette('red')
+        .backgroundPalette('grey', {
+            'default': '200'
+        })
 });
 
 
@@ -42,6 +45,7 @@ politikei.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
             $mdDialog.alert()
             .parent(angular.element(document.querySelector('#appContainer')))
             .clickOutsideToClose(true)
+            .templateUrl
             .title('Sobre o Politikei')
             .textContent('Esta é a versão web do Politikei')
             .ariaLabel('Sobre o Politikei')

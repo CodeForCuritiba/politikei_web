@@ -1,5 +1,9 @@
 /* Toolbar area */
 
+body {
+    background-color: #EEEEEE;
+}
+
 .menu {
     background-color: transparent;
     border: none;
@@ -144,4 +148,8 @@ button md-icon {
 
 .proposicao md-card.contra {
     border-left: thick solid red;
+}
+
+md-card {
+    background-color: #fff;
 }
