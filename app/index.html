@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="politikei" ng-strict-di>
 
 <head>
     <title>Politikei Web</title>
@@ -25,28 +25,12 @@
         display: none !important;
     }
     </style>
+
+    <base href="/">
 </head>
 
-<body ng-app="politikei" ng-cloak>
-    <div layout="column" ng-controller="AppCtrl" id="appContainer" layout-fill>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <!-- <md-button class="md-icon-button" ng-click="someFunc()">
-                   <i class="material-icons">menu</i> 
-                </md-button> -->
-                <h2>Politikei</h2>
-                <span flex></span>
-                <md-button class="" ng-href="https://docs.google.com/forms/d/1SOlJQ7SqlFVqK2ZXl6tJrZN5esUpfirRW5XntjpLQ1c/viewform" target="_blank">Avalie o Politikei</md-button>
-                <md-button class="md-icon-button" ng-click="showHelp($event)">
-                    <i class="material-icons">help</i>
-                </md-button>
-            </div>
-        </md-toolbar>
-        <md-content>
-            <div ui-view></div>
-            
-        </md-content>
-    </div>
+<body ng-controller="MainController as main" ng-cloak>
+    <div ui-view></div>
     <!-- Bower components -->
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
@@ -57,12 +41,16 @@
     <!-- App files -->
     <script src="./src/config.js"></script>
     <script src="./src/app.js"></script>
-    <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserService.js"></script>
-    <script src="./src/proposicoes/Proposicoes.js"></script>
-    <script src="./src/proposicoes/ProposicaoController.js"></script>
-    <script src="./src/proposicoes/ProposicaoService.js"></script>
-    <script src="./src/proposicoes/ProposicaoService.js"></script>
+    <script src="./src/public/site/Site.js"></script>
+    <script src="./src/public/site/SiteController.js"></script>
+    <script src="./src/public/home/Home.js"></script>
+    <script src="./src/public/home/HomeController.js"></script>
+    
+    
+    <!-- <script src="./src/app/proposicoes/Proposicoes.js"></script>
+    <script src="./src/app/proposicoes/ProposicaoController.js"></script>
+    <script src="./src/app/proposicoes/ProposicaoService.js"></script>
+    <script src="./src/app/proposicoes/ProposicaoService.js"></script> -->
 </body>
 
 </html>

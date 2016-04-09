@@ -1,15 +1,38 @@
-var politikei = angular.module('politikei', ['ui.router', 'proposicoes', 'ngCookies']);
-
-politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
-
-    $urlRouterProvider.otherwise("/proposicoes");
+function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+    
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state('proposicoes', {
+        .state('public', {
+            abstract: true,
+            template: "<ui-view/>"
+        })
+        .state('public.site', {
+            controller: 'SiteController as site',
+            templateUrl: 'src/public/site/index.html'
+        })
+        .state('public.site.home', {
+            url: '/',
+            controller: 'HomeController  as home',
+            templateUrl: 'src/public/home/index.html'
+        })
+
+    /*$stateProvider
+        .state('app', {
+            abstract: true,
+            template: "<ui-view/>"
+        })
+        .state('app.site', {
+            url: '/app',
+            controller: 'AppCtrl as app',
+            templateUrl: 'src/app/home/_admin.html'
+        })
+        .state('app.site.proposicoes', {
             url: "/proposicoes",
-            templateUrl: "src/proposicoes/view/index.html",
-            controller: 'ProposicaoController as proposicoes'
-        });
+            controller: 'ProposicaoController as proposicoes',
+            templateUrl: "src/public/proposicoes/view/index.html"
+        });*/
 
     $mdIconProvider
         .defaultIconSet("./assets/svg/avatars.svg", 128)
@@ -28,29 +51,20 @@ politikei.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         .backgroundPalette('grey', {
             'default': '200'
         })
-});
+}
+
+config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
 
 
-politikei.constant('app_config', config);
-
-
-politikei.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
+function MainController($scope, $mdMedia, $state) {
     $scope.status = '  ';
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-    $scope.showHelp = function(ev) {
-        // Appending dialog to document.body to cover sidenav in docs app
-        // Modal dialogs should fully cover application
-        // to prevent interaction outside of dialog
-        $mdDialog.show(
-            $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#appContainer')))
-            .clickOutsideToClose(true)
-            .templateUrl
-            .title('Sobre o Politikei')
-            .textContent('Esta é a versão web do Politikei')
-            .ariaLabel('Sobre o Politikei')
-            .ok('Entendi!')
-            .targetEvent(ev)
-        );
-    }
-});
+}
+
+MainController.$inject = ["$scope", "$mdMedia", '$state'];
+
+
+var politikei = angular
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'site'])
+    .config(config)
+    .controller('MainController', MainController);
