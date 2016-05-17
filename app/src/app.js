@@ -17,6 +17,11 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             controller: 'HomeController  as home',
             templateUrl: 'src/public/home/index.html'
         })
+        .state('public.site.proposicoes', {
+            url: "/proposicoes",
+            controller: 'ProposicaoController as proposicoes',
+            templateUrl: "src/app/proposicoes/view/index.html"
+        });
 
     /*$stateProvider
         .state('app', {
@@ -64,7 +69,15 @@ function MainController($scope, $mdMedia, $state) {
 MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
+
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'site'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'site', 'proposicoes', 'users'])
     .config(config)
     .controller('MainController', MainController);
+
+var config = {
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwMiwiaXNzIjoiaHR0cDpcL1wvcG9saXRpa2VpLWFwaS5oZXJva3VhcHAuY29tXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTczMjM2MiwiZXhwIjoxNDU1NzM1OTYyLCJuYmYiOjE0NTU3MzIzNjIsImp0aSI6IjU5MDI5MTU2MDE4MTJlYzQ0OGNmMzBmZmIxNmQ2ZGU1In0.-D5T4f2eA-l_fmKvave0n7djKihKMVgoG44GmG8scZM',
+    server: 'http://politikei-api.herokuapp.com/api/v1'
+};
+
+politikei.constant('app_config', config);
