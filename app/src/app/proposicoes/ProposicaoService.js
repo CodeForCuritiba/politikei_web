@@ -3,12 +3,12 @@
 
     var proposicoes = angular.module('proposicoes');
 
-    proposicoes.service('proposicaoService', ['$http', 'userService', 'app_config', ProposicaoService]);
+    proposicoes.service('proposicaoService', ['$http', '$q', 'userService', 'app_config', ProposicaoService]);
 
     var token = '';
     var server = '';
 
-    function ProposicaoService($http, $userService, app_config) {
+    function ProposicaoService($http, $q, $userService, app_config) {
         // Promise-based API
         return {
             loadAllProposicoes: function() {
@@ -27,6 +27,12 @@
                     method: 'POST',
                     url: app_config.server + '/proposicoes/votar/' + id + '?user_id=' + user_id + '&voto_usuario=' + voto + '&token=' + app_config.token
                 })
+            },
+            loadPublicProposicoes: function() {
+                return $q.when([
+                    { ementa: "teste de proposicoes" },
+                    { ementa: "teste de proposicoes" }
+                ]);
             }
         };
     }

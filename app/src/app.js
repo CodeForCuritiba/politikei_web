@@ -16,11 +16,6 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             url: '/',
             controller: 'HomeController  as home',
             templateUrl: 'src/public/home/index.html'
-        })
-        .state('public.site.proposicoes', {
-            url: "/proposicoes",
-            controller: 'ProposicaoPublicController as proposicoes',
-            templateUrl: "src/public/proposicoes/view/index.html"
         });
 
     /*$stateProvider
