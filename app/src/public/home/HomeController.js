@@ -8,16 +8,15 @@
     function HomeController($scope, $rootScope) {
         var self = this;
 
-
-        $rootScope.$on('$includeContentLoaded', function() {
-            JQuery(document).ready(function() {
+        $scope.content_loaded = function() {
+            $(function() {
                 // This command is used to initialize some elements and make them work properly
-                JQuery.material.init();
+                $.material.init();
+
+                $.init_menu();
             });
-        });
+        }
+
     }
-
-
-
 
 })();

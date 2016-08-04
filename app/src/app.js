@@ -19,8 +19,8 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         })
         .state('public.site.proposicoes', {
             url: "/proposicoes",
-            controller: 'ProposicaoController as proposicoes',
-            templateUrl: "src/app/proposicoes/view/index.html"
+            controller: 'ProposicaoPublicController as proposicoes',
+            templateUrl: "src/public/proposicoes/view/index.html"
         });
 
     /*$stateProvider
@@ -67,7 +67,6 @@ function MainController($scope, $mdMedia, $state) {
 }
 
 MainController.$inject = ["$scope", "$mdMedia", '$state'];
-
 
 
 var politikei = angular
