@@ -1,7 +1,7 @@
 function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
     
-    $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/");
+    //$locationProvider.html5Mode(true);
+    //$urlRouterProvider.otherwise("/");
 
     $stateProvider
         .state('public', {
@@ -16,7 +16,11 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             url: '/',
             controller: 'HomeController  as home',
             templateUrl: 'src/public/home/index.html'
-        });
+        }).state('proposicoes', {
+                url: "/proposicoes",
+                controller:"ProposicaoController as proposicoes",
+                templateUrl: "src/app/proposicoes/view/index.html"
+            });;
 
     /*$stateProvider
         .state('app', {
