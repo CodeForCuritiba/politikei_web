@@ -1,26 +1,19 @@
 function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
-    
+
     //$locationProvider.html5Mode(true);
     //$urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state('public', {
-            abstract: true,
-            template: "<ui-view/>"
-        })
-        .state('public.site', {
-            controller: 'SiteController as site',
-            templateUrl: 'src/public/site/index.html'
-        })
-        .state('public.site.home', {
+        .state('root', {
             url: '/',
             controller: 'HomeController  as home',
             templateUrl: 'src/public/home/index.html'
-        }).state('proposicoes', {
-                url: "/proposicoes",
-                controller:"ProposicaoController as proposicoes",
-                templateUrl: "src/app/proposicoes/view/index.html"
-            });;
+        })
+        .state('proposicoes', {
+            url: "/proposicoes",
+            controller: "ProposicaoController as proposicoes",
+            templateUrl: "src/app/proposicoes/view/index.html"
+        });;
 
     /*$stateProvider
         .state('app', {
