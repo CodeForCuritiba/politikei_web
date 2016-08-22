@@ -1,8 +1,5 @@
 function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
 
-    //$locationProvider.html5Mode(true);
-    //$urlRouterProvider.otherwise("/");
-
     $stateProvider
         .state('root', {
             url: '/',
@@ -13,23 +10,33 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
             templateUrl: "src/app/proposicoes/view/index.html"
-        });;
+        }).state('home', {
+            url: '/home',
+            views: {
+                '': {
+                    controller: "AppHomeController as appHome",
+                    templateUrl: "src/app/app-home.html"
+                },
+                "header@home": {
+                    controller: "HeaderController as header",
+                    templateUrl: "src/app/header/header.html"
+                },
+                "menu@home": {
+                    controller: "MenuController as menu",
+                    templateUrl: "src/app/menu/menu.html"
+                },
+                "content@home": {
+                    controller: "ProposicaoController as proposicoes",
+                    templateUrl: "src/app/proposicoes/view/index.html"
+                }
+            }
+        });
+    $urlRouterProvider.otherwise("/");
 
-    /*$stateProvider
-        .state('app', {
-            abstract: true,
-            template: "<ui-view/>"
-        })
-        .state('app.site', {
-            url: '/app',
-            controller: 'AppCtrl as app',
-            templateUrl: 'src/app/home/_admin.html'
-        })
-        .state('app.site.proposicoes', {
-            url: "/proposicoes",
-            controller: 'ProposicaoController as proposicoes',
-            templateUrl: "src/public/proposicoes/view/index.html"
-        });*/
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 
     $mdIconProvider
         .defaultIconSet("./assets/svg/avatars.svg", 128)
@@ -62,13 +69,13 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'site', 'proposicoes', 'users'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users'])
     .config(config)
     .controller('MainController', MainController);
 
-var config = {
+var configEndPoint = {
     token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwMiwiaXNzIjoiaHR0cDpcL1wvcG9saXRpa2VpLWFwaS5oZXJva3VhcHAuY29tXC9hcGlcL3YxXC9hdXRoXC9mYWNlYm9vayIsImlhdCI6MTQ1NTczMjM2MiwiZXhwIjoxNDU1NzM1OTYyLCJuYmYiOjE0NTU3MzIzNjIsImp0aSI6IjU5MDI5MTU2MDE4MTJlYzQ0OGNmMzBmZmIxNmQ2ZGU1In0.-D5T4f2eA-l_fmKvave0n7djKihKMVgoG44GmG8scZM',
     server: 'http://politikei-api-v5.herokuapp.com/'
 };
 
-politikei.constant('app_config', config);
+politikei.constant('app_config', configEndPoint);
