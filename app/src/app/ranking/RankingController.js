@@ -3,11 +3,11 @@
 
     angular
         .module('politikei')
-        .controller('HeaderController', HeaderController)
+        .controller('RankingController', RankingController)
 
-    HeaderController.$inject = [];
+    RankingController.$inject = [];
 
-    function HeaderController(){
+    function RankingController(){
         var vm = this;
         
         init();

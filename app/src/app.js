@@ -3,7 +3,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
     $stateProvider
         .state('root', {
             url: '/',
-            controller: 'HomeController  as home',
+            controller: 'HomeController as home',
             templateUrl: 'src/public/home/index.html'
         })
         .state('home', {
@@ -11,15 +11,31 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             controller: "AppHomeController as appHome",
             templateUrl: "src/app/app-home.html"
         }).state('home.proposicoes', {
-            url: "/prop",
+            url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
-            templateUrl: "src/app/proposicoes/view/index.html"
-        }).state('home.teste', {
-            url: "/teste",
-            controller: "ProposicaoController as proposicoes",
-            templateUrl: "src/app/proposicoes/view/index.html"
+            templateUrl: "../src/app/proposicoes/view/index.html"
+        }).state('home.ranking', {
+            url: "/ranking",
+            controller: "RankingController as ranking",
+            templateUrl: "../src/app/ranking/ranking.html"
+        }).state('home.sobre', {
+            url: "/sobre",
+            controller: "SobreController as sobre",
+            templateUrl: "../src/app/sobre/sobre.html"
+        }).state('home.avalie', {
+            url: "/avalie",
+            controller: "AvalieController as avalie",
+            templateUrl: "../src/app/avalie/avalie.html"
+        }).state('home.duvidas', {
+            url: "/duvidas",
+            controller: "DuvidasController as duvidas",
+            templateUrl: "../src/app/duvidas/duvidas.html"
+        }).state('home.contribua', {
+            url: "/contribua",
+            controller: "ContribuaController as contribua",
+            templateUrl: "../src/app/contribua/contribua.html"
         });
-    //$urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/");
 
     $locationProvider.html5Mode({
         enabled: true,

@@ -6,19 +6,48 @@
 </md-toolbar>
 
 <div flex layout="row">
-
-    <md-sidenav  md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
-        <md-list ng-controller="MenuController as menu"> 
-            <md-list-item ng-repeat="it in menu.options" s>
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
+        <md-list>
+            <md-list-item>
                 <md-button ui-sref="home.proposicoes" ng-click="" ng-class="{'selected' : it === ul.selected }">
-                    {{it}}
+                    Projetos De Lei
+                </md-button>
+            </md-list-item>
+            <!--TODO -- not included for the first revision -->
+            <!--<md-list-item>
+                    <md-button ui-sref="home.vereadores" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Vereadores
+                </md-button>
+                </md-list-item>-->
+            <md-list-item>
+                <md-button ui-sref="home.ranking" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Ranking
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="home.sobre" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Sobre
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="home.avalie" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Avalie o Politikei
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="home.duvidas" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Duvidas
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="home.contribua" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    Contribua já!
                 </md-button>
             </md-list-item>
         </md-list>
     </md-sidenav>
 
-    <md-content flex id="content">
+    <md-content flex>
         <div ui-view=""></div>
     </md-content>
-
 </div>

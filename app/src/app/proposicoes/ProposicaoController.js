@@ -16,7 +16,7 @@
             self.loaded = false;
 
             proposicaoService
-                .loadAllProposicoes()
+                .loadPublicProposicoes()
                 .then(function(proposicoes) {
                     self.proposicoes = [].concat(proposicoes);
                     self.selected = proposicoes[0];

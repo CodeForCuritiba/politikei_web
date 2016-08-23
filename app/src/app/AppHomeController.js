@@ -5,14 +5,15 @@
         .module('politikei')
         .controller('AppHomeController', AppHomeController);
 
-    AppHomeController.$inject = [];
+    AppHomeController.$inject = ['$state'];
     
-    function AppHomeController(){
+    function AppHomeController($state){
         var vm = this;
-        
         init();
 
-        function init(){
+        function init() {
+            $state.go('.proposicoes');    
+            console.log('teste');
         }
 
     }
