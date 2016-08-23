@@ -12,12 +12,10 @@
         // Promise-based API
         return {
             loadAllProposicoes: function() {
-                var user_id = $userService.get();
                 return $http({
                     method: 'GET',
-                    url: app_config.server + '/proposicoes/' + user_id + '?token=' + app_config.token
+                    url: app_config.server + 'propositions/'
                 }).then(function successCallback(response) {
-                    $userService.save(response.data.user);
                     return response.data.proposicoes;
                 });
             },
