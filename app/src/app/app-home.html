@@ -1,17 +1,24 @@
 <md-toolbar layout="row">
-    <div ui-view="header"></div>
+    <md-button class="menu" hide-gt-sm aria-label="Show User List">
+        <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>Angular Material - Starter App</h1>
 </md-toolbar>
 
 <div flex layout="row">
 
-        <md-sidenav  md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
-            <div ui-view="menu"></div>
-        </md-sidenav>
+    <md-sidenav  md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
+        <md-list ng-controller="MenuController as menu"> 
+            <md-list-item ng-repeat="it in menu.options" s>
+                <md-button ui-sref="home.proposicoes" ng-click="" ng-class="{'selected' : it === ul.selected }">
+                    {{it}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
 
-        <md-content flex id="content">
-            <div ui-view="content"></div>          
-        </md-content>
+    <md-content flex id="content">
+        <div ui-view=""></div>
+    </md-content>
 
-    </div>
-
-
+</div>

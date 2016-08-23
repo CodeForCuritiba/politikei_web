@@ -6,32 +6,20 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             controller: 'HomeController  as home',
             templateUrl: 'src/public/home/index.html'
         })
-        .state('proposicoes', {
-            url: "/proposicoes",
+        .state('home', {
+            url: '/home',
+            controller: "AppHomeController as appHome",
+            templateUrl: "src/app/app-home.html"
+        }).state('home.proposicoes', {
+            url: "/prop",
             controller: "ProposicaoController as proposicoes",
             templateUrl: "src/app/proposicoes/view/index.html"
-        }).state('home', {
-            url: '/home',
-            views: {
-                '': {
-                    controller: "AppHomeController as appHome",
-                    templateUrl: "src/app/app-home.html"
-                },
-                "header@home": {
-                    controller: "HeaderController as header",
-                    templateUrl: "src/app/header/header.html"
-                },
-                "menu@home": {
-                    controller: "MenuController as menu",
-                    templateUrl: "src/app/menu/menu.html"
-                },
-                "content@home": {
-                    controller: "ProposicaoController as proposicoes",
-                    templateUrl: "src/app/proposicoes/view/index.html"
-                }
-            }
+        }).state('home.teste', {
+            url: "/teste",
+            controller: "ProposicaoController as proposicoes",
+            templateUrl: "src/app/proposicoes/view/index.html"
         });
-    $urlRouterProvider.otherwise("/");
+    //$urlRouterProvider.otherwise("/");
 
     $locationProvider.html5Mode({
         enabled: true,
