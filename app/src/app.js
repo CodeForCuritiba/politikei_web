@@ -83,6 +83,17 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
 
 }
 
+run.$inject = ['$rootScope', '$location', '$window'];
+function run($rootScope, $location, $window) {
+    // initialise google analytics
+    $window.ga('create', 'UA-83144910-1', 'auto');
+
+    // track pageview on state change
+    $rootScope.$on('$stateChangeSuccess', function (event) {
+        $window.ga('send', 'pageview', $location.path());
+    });
+}
+
 config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
 
 
@@ -97,6 +108,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 var politikei = angular
     .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users'])
     .config(config)
+    .run(run)
     .controller('MainController', MainController);
 
 var configEndPoint = {
