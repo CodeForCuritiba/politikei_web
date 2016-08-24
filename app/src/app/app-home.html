@@ -24,7 +24,7 @@
                 <i class="fa fa-users">
                 <spam>Vereadores</spam>
             </md-list-item> -->
-            <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected(item, $event, 'ranking')" ng-class="{ 'nav-active': ranking == appHome.selected }">
                 <i class="fa fa-pie-chart"></i>
                 <span>Ranking</span>
             </md-list-item>

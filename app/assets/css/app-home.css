@@ -2,7 +2,7 @@
    So to make it easier, the color profile of the navigation menu is being set
    manyally.
 */
-/*.nav-active { background-color: #2E4152; }*/
+.nav-active { background-color: #2E4152; }
 md-list-item { color: white; }
 md-list-item i { color: #11ADA0; margin-right: 8px; }
 md-list-item p {
