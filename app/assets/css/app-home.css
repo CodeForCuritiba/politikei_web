@@ -1,4 +1,18 @@
 .nav-active {
-  background-color: blue;
-  color: yellow;
+  background-color: #2E4152;
 }
+
+
+/* MD Sidenav size can't be changed using md classes,
+using flex breaks animations. */
+md-sidenav,
+md-sidenav.md-locked-open-add-active,
+md-sidenav.md-closed.md-locked-open-add-active,
+md-sidenav.md-locked-open {
+    background-color: #354C5E;
+    width: 251px;
+    min-width: 251px;
+    max-width: 251px;
+}
+
+md-sidenav

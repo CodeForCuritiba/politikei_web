@@ -4,7 +4,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .state('root', {
             url: '/',
             controller: 'HomeController as home',
-            templateUrl: 'src/public/home/index.html'
+            templateUrl: 'src/public/home/launch_landing.html'
         })
         .state('home', {
             url: '/home',
@@ -52,20 +52,33 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .icon("phone", "./assets/svg/phone.svg", 512);
 
     var pkGreen = $mdThemingProvider.extendPalette('teal', {
-        '500': '#00cfbe',
-        '300': '#00b3a2',
-        '800': '#00a796',
+        '400': '#23C9BB',
+        '500': '#11ADA0',
+        '600': '#11A294',
         'contrastDefaultColor': 'light'
     });
-    // Register the new color palette map with the name <code>neonRed</code>
+    var pkDarkBlueGrey = $mdThemingProvider.extendPalette('blue-grey', {
+        '50':  '#E9F2F1',
+        '500': '#354C5E',
+        '800': '#2E4152',
+        'contrastDefaultColor': 'light',
+        'contrastDarkColors': ['50']
+    });
     $mdThemingProvider.definePalette('pkGreen', pkGreen);
+    $mdThemingProvider.definePalette('pkDarkBlueGrey', pkDarkBlueGrey);
     $mdThemingProvider.theme('default')
         .primaryPalette('pkGreen', {
-            'default': '700',
+            'default': '400',
+            'hue-1': '500',
+            'hue-2': '600'
         })
-        .accentPalette('red')
-        .backgroundPalette('grey', {
-            'default': '200'
+        .accentPalette('pkDarkBlueGrey', {
+            'default': '500',
+            'hue-1': '800',
+            'hue-2': '50'
+        })
+        .backgroundPalette('pkDarkBlueGrey', {
+            'default': '50'
         })
 
 }
