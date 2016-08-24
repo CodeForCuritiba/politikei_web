@@ -51,14 +51,23 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .icon("twitter", "./assets/svg/twitter.svg", 512)
         .icon("phone", "./assets/svg/phone.svg", 512);
 
+    var pkGreen = $mdThemingProvider.extendPalette('teal', {
+        '500': '#00cfbe',
+        '300': '#00b3a2',
+        '800': '#00a796',
+        'contrastDefaultColor': 'light'
+    });
+    // Register the new color palette map with the name <code>neonRed</code>
+    $mdThemingProvider.definePalette('pkGreen', pkGreen);
     $mdThemingProvider.theme('default')
-        .primaryPalette('teal', {
+        .primaryPalette('pkGreen', {
             'default': '700',
         })
         .accentPalette('red')
         .backgroundPalette('grey', {
             'default': '200'
         })
+
 }
 
 config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];

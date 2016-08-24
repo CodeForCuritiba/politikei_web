@@ -15,8 +15,13 @@
             $state.go('.proposicoes');
         }
 
-        this.toggleUsersList = function() {
+        this.toggleMenu = function() {
             $mdSidenav('left').toggle();
+        }
+
+        this.menuItemSelected = function(item, event) {
+            $mdSidenav('left').toggle();
+            $state.activeItem = item;
         }
 
     }
