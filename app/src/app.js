@@ -6,6 +6,11 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             controller: 'HomeController as home',
             templateUrl: 'src/public/home/launch_landing.html'
         })
+        .state('demo', {
+            url: '/demo',
+            controller: 'HomeController as home',
+            templateUrl: 'src/public/home/index.html'
+        })
         .state('home', {
             url: '/home',
             controller: "AppHomeController as appHome",
