@@ -15,35 +15,35 @@
             <md-list-item>
                 <p>Navegue:</p>
             </md-list-item>
-            <md-list-item ui-sref="home.proposicoes" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.proposicoes" ng-click="appHome.menuItemSelected('proposicoes')" ng-class="{ 'nav-active': 'proposicoes' == appHome.selected }">
                 <i class="fa fa-file-text"></i>
                 <span>Projetos De Lei</span>
             </md-list-item>
             <!--TODO -- not included for the first revision -->
-            <!-- <md-list-item ui-sref="home.vereadores" ng-click="appHome.toggleUsersList()" ng-class="{ 'nav-active': item == activeItem }">
+            <!-- <md-list-item ui-sref="home.vereadores" ng-click="appHome.menuItemSelected('ranking')" ng-class="{ 'nav-active': vereadores == appHome.selected }">
                 <i class="fa fa-users">
                 <spam>Vereadores</spam>
             </md-list-item> -->
-            <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected(item, $event, 'ranking')" ng-class="{ 'nav-active': ranking == appHome.selected }">
+            <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected('ranking')" ng-class="{ 'nav-active': 'ranking' == appHome.selected }">
                 <i class="fa fa-pie-chart"></i>
                 <span>Ranking</span>
             </md-list-item>
             <md-list-item>
                 <p>Politikei:</p>
             </md-list-item>
-            <md-list-item ui-sref="home.sobre" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.sobre" ng-click="appHome.menuItemSelected('sobre')" ng-class="{ 'nav-active': 'sobre' == appHome.selected }">
                 <span>Sobre</span>
             </md-list-item>
-            <md-list-item ui-sref="home.avalie" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.avalie" ng-click="appHome.menuItemSelected('avalie')" ng-class="{ 'nav-active': 'avalie' == appHome.selected }">
                 <span>Avalie o Politikei</span>
             </md-list-item>
-            <md-list-item ui-sref="home.duvidas" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.duvidas" ng-click="appHome.menuItemSelected('duvidas')" ng-class="{ 'nav-active': 'duvidas' == appHome.selected }">
                 <span>Duvidas</span>
             </md-list-item>
             <md-list-item>
                 <p>Faça parte:</p>
             </md-list-item>
-            <md-list-item ui-sref="home.contribua" ng-click="appHome.menuItemSelected(item, $event)" ng-class="{ 'nav-active': item == activeItem }">
+            <md-list-item ui-sref="home.contribua" ng-click="appHome.menuItemSelected('contribua')" ng-class="{ 'nav-active': 'contribua' == appHome.selected }">
                 <span>Contribua já!</span>
             </md-list-item>
         </md-list>

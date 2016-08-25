@@ -9,7 +9,7 @@
 
     function AppHomeController($state, $mdSidenav) {
         var vm = this;
-        this.selected = '';    
+        this.selected = '';
         init();
 
         function init() {
@@ -20,10 +20,9 @@
             $mdSidenav('left').toggle();
         }
 
-        this.menuItemSelected = function(item, event, option) {
-            vm.selected = option;   
+        this.menuItemSelected = function(option) {
+            vm.selected = option;
             $mdSidenav('left').toggle();
-            $state.activeItem = item;
         }
 
     }
