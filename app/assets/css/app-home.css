@@ -4,7 +4,7 @@
 */
 .nav-active { background-color: #2E4152; }
 md-list-item { color: white; }
-md-list-item i { color: #11ADA0; margin-right: 8px; }
+md-list-item img { margin-right: 8px; }
 md-list-item p {
     color: #11ADA0;
     text-transform: uppercase;

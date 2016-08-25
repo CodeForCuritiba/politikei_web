@@ -16,7 +16,7 @@
                 <p>Navegue:</p>
             </md-list-item>
             <md-list-item ui-sref="home.proposicoes" ng-click="appHome.menuItemSelected('proposicoes')" ng-class="{ 'nav-active': 'proposicoes' == appHome.selected }">
-                <i class="fa fa-file-text"></i>
+                <img src="assets/img/icones/nav_projetos.png" alt="proposições" width="24" height="21"/>
                 <span>Projetos De Lei</span>
             </md-list-item>
             <!--TODO -- not included for the first revision -->
@@ -25,7 +25,7 @@
                 <spam>Vereadores</spam>
             </md-list-item> -->
             <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected('ranking')" ng-class="{ 'nav-active': 'ranking' == appHome.selected }">
-                <i class="fa fa-pie-chart"></i>
+                <img src="assets/img/icones/nav_ranking.png" alt="ranking" width="21" height="21"/>
                 <span>Ranking</span>
             </md-list-item>
             <md-list-item>
@@ -44,6 +44,7 @@
                 <p>Faça parte:</p>
             </md-list-item>
             <md-list-item ui-sref="home.contribua" ng-click="appHome.menuItemSelected('contribua')" ng-class="{ 'nav-active': 'contribua' == appHome.selected }">
+                <img src="assets/img/icones/nav_faca_parte.png" alt="contribua" width="21" height="21"/>
                 <span>Contribua já!</span>
             </md-list-item>
         </md-list>
