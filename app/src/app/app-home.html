@@ -7,16 +7,13 @@
 </md-toolbar>
 
 <div flex layout="row">
-    <md-sidenav
-            md-is-locked-open="$mdMedia('gt-sm')"
-            md-component-id="left"
-            class="md-sidenav-left">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left">
         <md-list class="">
             <md-list-item>
                 <p>Navegue:</p>
             </md-list-item>
             <md-list-item ui-sref="home.proposicoes" ng-click="appHome.menuItemSelected('proposicoes')" ng-class="{ 'nav-active': 'proposicoes' == appHome.selected }">
-                <img src="assets/img/icones/nav_projetos.png" alt="proposições" width="24" height="21"/>
+                <img src="assets/img/icones/nav_projetos.png" alt="proposições" width="24" height="21" />
                 <span>Projetos De Lei</span>
             </md-list-item>
             <!--TODO -- not included for the first revision -->
@@ -25,13 +22,13 @@
                 <spam>Vereadores</spam>
             </md-list-item> -->
             <md-list-item ui-sref="home.ranking" ng-click="appHome.menuItemSelected('ranking')" ng-class="{ 'nav-active': 'ranking' == appHome.selected }">
-                <img src="assets/img/icones/nav_ranking.png" alt="ranking" width="21" height="21"/>
+                <img src="assets/img/icones/nav_ranking.png" alt="ranking" width="21" height="21" />
                 <span>Ranking</span>
             </md-list-item>
             <md-list-item>
                 <p>Politikei:</p>
             </md-list-item>
-            <md-list-item ui-sref="home.sobre" ng-click="appHome.menuItemSelected('sobre')" ng-class="{ 'nav-active': 'sobre' == appHome.selected }">
+            <md-list-item ng-click="appHome.open('sobre')">
                 <span>Sobre</span>
             </md-list-item>
             <md-list-item ui-sref="home.avalie" ng-click="appHome.menuItemSelected('avalie')" ng-class="{ 'nav-active': 'avalie' == appHome.selected }">
@@ -43,8 +40,8 @@
             <md-list-item>
                 <p>Faça parte:</p>
             </md-list-item>
-            <md-list-item ui-sref="home.contribua" ng-click="appHome.menuItemSelected('contribua')" ng-class="{ 'nav-active': 'contribua' == appHome.selected }">
-                <img src="assets/img/icones/nav_faca_parte.png" alt="contribua" width="21" height="21"/>
+            <md-list-item ng-click="appHome.open('contribua')">
+                <img src="assets/img/icones/nav_faca_parte.png" alt="contribua" width="21" height="21" />
                 <span>Contribua já!</span>
             </md-list-item>
         </md-list>
