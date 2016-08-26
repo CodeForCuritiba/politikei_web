@@ -4,41 +4,40 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .state('root', {
             url: '/',
             controller: 'HomeController as home',
-            templateUrl: 'src/public/home/launch_landing.html'
+            templateUrl: '../src/public/home/launch_landing.html',
+            auth:'public',
         })
         .state('demo', {
             url: '/demo',
             controller: 'HomeController as home',
-            templateUrl: 'src/public/home/index.html'
+            templateUrl: '../src/public/home/index.html',
+            auth:'public'
         })
         .state('home', {
             url: '/home',
             controller: "AppHomeController as appHome",
-            templateUrl: "src/app/app-home.html"
+            templateUrl: "../src/app/app-home.html",
+            auth:'public'
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
-            templateUrl: "../src/app/proposicoes/view/index.html"
+            templateUrl: "../src/app/proposicoes/view/index.html",
+            auth:'public'
         }).state('home.ranking', {
             url: "/ranking",
             controller: "RankingController as ranking",
-            templateUrl: "../src/app/ranking/ranking.html"
-        }).state('home.sobre', {
-            url: "/sobre",
-            controller: "SobreController as sobre",
-            templateUrl: "../src/app/sobre/sobre.html"
+            templateUrl: "../src/app/ranking/ranking.html",
+            auth:'public'
         }).state('home.avalie', {
             url: "/avalie",
             controller: "AvalieController as avalie",
-            templateUrl: "../src/app/avalie/avalie.html"
+            templateUrl: "../src/app/avalie/avalie.html",
+            auth:'public'
         }).state('home.duvidas', {
             url: "/duvidas",
             controller: "DuvidasController as duvidas",
-            templateUrl: "../src/app/duvidas/duvidas.html"
-        }).state('home.contribua', {
-            url: "/contribua",
-            controller: "ContribuaController as contribua",
-            templateUrl: "../src/app/contribua/contribua.html"
+            templateUrl: "../src/app/duvidas/duvidas.html",
+            auth:'public'
         });
     $urlRouterProvider.otherwise("/");
 
@@ -63,7 +62,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         'contrastDefaultColor': 'light'
     });
     var pkDarkBlueGrey = $mdThemingProvider.extendPalette('blue-grey', {
-        '50':  '#E9F2F1',
+        '50': '#E9F2F1',
         '500': '#354C5E',
         '800': '#2E4152',
         'contrastDefaultColor': 'light',
@@ -88,14 +87,22 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
 
 }
 
-run.$inject = ['$rootScope', '$location', '$window'];
-function run($rootScope, $location, $window) {
+run.$inject = ['$rootScope', '$location', '$window', '$state'];
+function run($rootScope, $location, $window, $state) {
     // initialise google analytics
     $window.ga('create', 'UA-83144910-1', 'auto');
 
     // track pageview on state change
     $rootScope.$on('$stateChangeSuccess', function (event) {
         $window.ga('send', 'pageview', $location.path());
+    });
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        if (toState.auth === 'public') return;
+        
+        event.preventDefault();
+        $state.go('^.^.root', {notify: false});
+
     });
 }
 
@@ -111,7 +118,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);
