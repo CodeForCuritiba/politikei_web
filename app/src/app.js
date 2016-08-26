@@ -100,6 +100,7 @@ function run($rootScope, $location, $window, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
         
+        //Validate login here
         event.preventDefault();
         $state.go('^.^.root', {notify: false});
 
