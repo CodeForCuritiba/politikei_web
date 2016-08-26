@@ -87,6 +87,9 @@ md-list-item {
 
 /* Utils */
 
+.fuck-css{
+    position: absolute;
+}
 
 /* Typography support coming in 0.8.0 */
 
