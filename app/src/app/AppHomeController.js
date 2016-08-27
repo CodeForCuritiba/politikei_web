@@ -27,7 +27,7 @@
 
         this.open = function (page) {
             let url = null;
-            
+
             if (page === 'contribua') {
                 url = 'http://localhost:3000';
             }

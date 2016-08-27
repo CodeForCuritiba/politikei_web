@@ -21,7 +21,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
-            templateUrl: "../src/app/proposicoes/view/index.html",
+            templateUrl: "../src/app/proposicoes/proposicoes.html",
             auth:'public'
         }).state('home.ranking', {
             url: "/ranking",
@@ -94,12 +94,14 @@ function run($rootScope, $location, $window, $state) {
 
     // track pageview on state change
     $rootScope.$on('$stateChangeSuccess', function (event) {
-        $window.ga('send', 'pageview', $location.path());
+        if (document.location.hostname.search("politikei.org") !== -1) {
+            $window.ga('send', 'pageview', $location.path());
+        }
     });
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
-        
+
         //Validate login here
         event.preventDefault();
         $state.go('^.^.root', {notify: false});

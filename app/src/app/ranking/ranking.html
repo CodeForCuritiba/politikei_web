@@ -1,1 +1,10 @@
-This is Ranking!!!!
+<div ng-if="!ranking.loaded">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+</div>
+<div ng-if="ranking.loaded">
+    <div ng-repeat="rank in ranking.ranks">
+        <p>{{rank.match_votos_favor}} | {{rank.match_votos_contra}}</p>
+    </div>
+</div>

@@ -10,7 +10,6 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="assets/app.css" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
@@ -21,6 +20,8 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="assets/css/animate.min.css" rel="stylesheet">
+
+    <link href="assets/app.css" rel="stylesheet" />
     <link href="assets/css/app-home.css" rel="stylesheet">
 
     <style type="text/css">
@@ -49,7 +50,7 @@
     <!--<base href="/">-->
 </head>
 
-<body ng-controller="MainController as main" ng-cloak layout-fill class="fuck-css">
+<body ng-controller="MainController as main" ng-cloak layout-fill>
     <section ui-view layout-fill></section>
     <!-- Bower components -->
     <script src="./bower_components/angular/angular.js"></script>
@@ -58,10 +59,10 @@
     <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="./bower_components/angular-material/angular-material.js"></script>
     <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
+
     <!-- App files -->
     <script src="./src/config.js"></script>
     <script src="./src/app.js"></script>
-
 
     <script src="./src/app/AppHomeController.js"></script>
 
@@ -70,17 +71,21 @@
     <script src="./src/app/avalie/AvalieController.js"></script>
     <script src="./src/app/contribua/ContribuaController.js"></script>
     <script src="./src/app/duvidas/DuvidasController.js"></script>
-    <script src="./src/app/ranking/RankingController.js"></script>
     <script src="./src/app/sobre/SobreController.js"></script>
-
-
 
     <script src="./src/public/home/Home.js"></script>
     <script src="./src/public/home/HomeController.js"></script>
+
+    <!-- Proposicoes -->
     <script src="./src/public/home/ProposicoesPublicController.js"></script>
     <script src="./src/app/proposicoes/Proposicoes.js"></script>
     <script src="./src/app/proposicoes/ProposicaoService.js"></script>
     <script src="./src/app/proposicoes/ProposicaoController.js"></script>
+
+    <!-- Ranking -->
+    <script src="./src/app/ranking/Ranking.js"></script>
+    <script src="./src/app/ranking/RankingService.js"></script>
+    <script src="./src/app/ranking/RankingController.js"></script>
 
     <script src="assets/js/jquery-2.1.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
