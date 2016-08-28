@@ -1,43 +1,43 @@
-function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, OAuthProvider) {
 
     $stateProvider
         .state('root', {
             url: '/',
             controller: 'HomeController as home',
             templateUrl: '../src/public/home/launch_landing.html',
-            auth:'public',
+            auth: 'public',
         })
         .state('demo', {
             url: '/demo',
             controller: 'HomeController as home',
             templateUrl: '../src/public/home/index.html',
-            auth:'public'
+            auth: 'public'
         })
         .state('home', {
             url: '/home',
             controller: "AppHomeController as appHome",
             templateUrl: "../src/app/app-home.html",
-            auth:'public'
+            auth: 'public'
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
             templateUrl: "../src/app/proposicoes/view/index.html",
-            auth:'public'
+            auth: 'public'
         }).state('home.ranking', {
             url: "/ranking",
             controller: "RankingController as ranking",
             templateUrl: "../src/app/ranking/ranking.html",
-            auth:'public'
+            auth: 'public'
         }).state('home.avalie', {
             url: "/avalie",
             controller: "AvalieController as avalie",
             templateUrl: "../src/app/avalie/avalie.html",
-            auth:'public'
+            auth: 'public'
         }).state('home.duvidas', {
             url: "/duvidas",
             controller: "DuvidasController as duvidas",
             templateUrl: "../src/app/duvidas/duvidas.html",
-            auth:'public'
+            auth: 'public'
         });
     $urlRouterProvider.otherwise("/");
 
@@ -83,8 +83,13 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         })
         .backgroundPalette('pkDarkBlueGrey', {
             'default': '50'
-        })
+        });
 
+    OAuthProvider.configure({
+        baseUrl: 'https://api.website.com',
+        clientId: 'CLIENT_ID',
+        clientSecret: 'CLIENT_SECRET' // optional
+    });
 }
 
 run.$inject = ['$rootScope', '$location', '$window', '$state'];
@@ -97,18 +102,34 @@ function run($rootScope, $location, $window, $state) {
         $window.ga('send', 'pageview', $location.path());
     });
 
+    //route access
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
-        
+
         //Validate login here
         event.preventDefault();
-        $state.go('^.^.root', {notify: false});
+        $state.go('^.^.root', { notify: false });
 
+    });
+
+    //oauth2 error handler
+    $rootScope.$on('oauth:error', function(event, rejection) {
+      // Ignore `invalid_grant` error - should be catched on `LoginController`.
+      if ('invalid_grant' === rejection.data.error) {
+        return;
+      }
+
+      // Refresh token when a `invalid_token` error occurs.
+      if ('invalid_token' === rejection.data.error) {
+        return OAuth.getRefreshToken();
+      }
+
+      // Redirect to `/login` with the `error_reason`.
+      return $window.location.href = '/login?error_reason=' + rejection.data.error;
     });
 }
 
-config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
-
+config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider', 'OAuthProvider'];
 
 function MainController($scope, $mdMedia, $state) {
     $scope.status = '  ';
@@ -119,7 +140,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'angular-oauth2'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);
