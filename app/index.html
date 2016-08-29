@@ -24,18 +24,18 @@
     <link href="assets/css/app-home.css" rel="stylesheet">
 
     <style type="text/css">
-    /**
+        /**
          * Hide when Angular is not yet loaded and initialized
          */
-
-    [ng\:cloak],
-    [ng-cloak],
-    [data-ng-cloak],
-    [x-ng-cloak],
-    .ng-cloak,
-    .x-ng-cloak {
-        display: none !important;
-    }
+        
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
     </style>
 
     <!-- Google Analytics -->
@@ -50,6 +50,25 @@
 </head>
 
 <body ng-controller="MainController as main" ng-cloak layout-fill class="fuck-css">
+
+    <!--Facebook API-->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '1766554283585819',
+            xfbml      : true,
+            version    : 'v2.7'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <section ui-view layout-fill></section>
     <!-- Bower components -->
     <script src="./bower_components/angular/angular.min.js"></script>

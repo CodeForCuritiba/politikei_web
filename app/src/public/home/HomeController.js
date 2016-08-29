@@ -3,7 +3,7 @@
 
     var home = angular.module('home');
 
-    home.controller('HomeController', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
+    home.controller('HomeController', ['$scope', '$state', '$mdDialog', function ($scope, $state, $mdDialog) {
         var self = this;
 
         $scope.content_loaded = function () {
@@ -13,6 +13,21 @@
 
                 $.init_menu();
             });
+        };
+
+        this.login_fb = function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    FB.api('/me', function (response) {                        
+                        //passar token API
+                        console.log(JSON.stringify(response));
+
+                        $state.go('home', { notify: false });
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {scope: 'email',return_scopes: true});
         };
 
         $scope.status = '  ';
@@ -35,9 +50,9 @@
         };
 
         DialogController.$inject = ['$scope', '$mdDialog'];
-        
+
         function DialogController($scope, $mdDialog) {
-           $scope.submit = function (answer) {
+            $scope.submit = function (answer) {
                 $mdDialog.hide(answer);
             };
         };

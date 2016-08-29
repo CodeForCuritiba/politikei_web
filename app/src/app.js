@@ -17,27 +17,27 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             url: '/home',
             controller: "AppHomeController as appHome",
             templateUrl: "../src/app/app-home.html",
-            auth: 'public'
+            auth: 'private'
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
             templateUrl: "../src/app/proposicoes/view/index.html",
-            auth: 'public'
+            auth: 'private'
         }).state('home.ranking', {
             url: "/ranking",
             controller: "RankingController as ranking",
             templateUrl: "../src/app/ranking/ranking.html",
-            auth: 'public'
+            auth: 'private'
         }).state('home.avalie', {
             url: "/avalie",
             controller: "AvalieController as avalie",
             templateUrl: "../src/app/avalie/avalie.html",
-            auth: 'public'
+            auth: 'private'
         }).state('home.duvidas', {
             url: "/duvidas",
             controller: "DuvidasController as duvidas",
             templateUrl: "../src/app/duvidas/duvidas.html",
-            auth: 'public'
+            auth: 'private'
         });
     $urlRouterProvider.otherwise("/");
 
@@ -106,26 +106,32 @@ function run($rootScope, $location, $window, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
 
-        //Validate login here
-        event.preventDefault();
-        $state.go('^.^.root', { notify: false });
+        console.log('=============== '+JSON.stringify(fromState));
 
+        //Validate login here
+        FB.getLoginStatus(function (response) {
+            console.log('=============== '+JSON.stringify(response.status));
+            if (!response.status || response.status !== 'connected') {
+                event.preventDefault();
+                $state.go('^.^.demo', { notify: false });
+            }
+        });
     });
 
     //oauth2 error handler
-    $rootScope.$on('oauth:error', function(event, rejection) {
-      // Ignore `invalid_grant` error - should be catched on `LoginController`.
-      if ('invalid_grant' === rejection.data.error) {
-        return;
-      }
+    $rootScope.$on('oauth:error', function (event, rejection) {
+        // Ignore `invalid_grant` error - should be catched on `LoginController`.
+        if ('invalid_grant' === rejection.data.error) {
+            return;
+        }
 
-      // Refresh token when a `invalid_token` error occurs.
-      if ('invalid_token' === rejection.data.error) {
-        return OAuth.getRefreshToken();
-      }
+        // Refresh token when a `invalid_token` error occurs.
+        if ('invalid_token' === rejection.data.error) {
+            return OAuth.getRefreshToken();
+        }
 
-      // Redirect to `/login` with the `error_reason`.
-      return $window.location.href = '/login?error_reason=' + rejection.data.error;
+        // Redirect to `/login` with the `error_reason`.
+        return $window.location.href = '/login?error_reason=' + rejection.data.error;
     });
 }
 
