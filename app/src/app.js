@@ -121,7 +121,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'ranking'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);
