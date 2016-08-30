@@ -100,3 +100,29 @@ button md-icon {
 md-card {
     background-color: #fff;
 }
+
+/* We can't set two different bg color on the default theme.
+   So to make it easier, the color profile of the navigation menu is being set
+   manyally.
+*/
+.nav-active { background-color: #2E4152; }
+md-list-item { color: white; }
+md-list-item img { margin-right: 8px; }
+md-list-item p {
+    color: #11ADA0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* MD Sidenav size can't be changed using md classes,
+   using flex breaks animations.
+*/
+md-sidenav,
+md-sidenav.md-locked-open-add-active,
+md-sidenav.md-closed.md-locked-open-add-active,
+md-sidenav.md-locked-open {
+    background-color: #354C5E;
+    width: 251px;
+    min-width: 251px;
+    max-width: 251px;
+}
