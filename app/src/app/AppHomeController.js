@@ -5,9 +5,9 @@
         .module('politikei')
         .controller('AppHomeController', AppHomeController);
 
-    AppHomeController.$inject = ['$state', '$mdSidenav', '$window'];
+    AppHomeController.$inject = ['$state', '$mdSidenav', '$window', 'facebookService'];
 
-    function AppHomeController($state, $mdSidenav, $window) {
+    function AppHomeController($state, $mdSidenav, $window, facebookService) {
         var vm = this;
         this.selected = '';
         init();
@@ -26,14 +26,7 @@
         }
 
         this.login_logout = function () {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    FB.logout(function (resp) {
-                        $state.go('^.^.demo', { notify: false });
-                    });
-                    //FB.logout(response.authResponse.accessToken);
-                }
-            });
+            facebookService.logout();
         }
 
         this.open = function (page) {

@@ -55,9 +55,11 @@
     <script>
         window.fbAsyncInit = function() {
             FB.init({
-            appId      : '1766554283585819',
-            xfbml      : true,
-            version    : 'v2.7'
+            appId       : '1766554283585819',
+            xfbml       : true,
+            version     : 'v2.7',
+            status      :true,  
+            cookie      :true
             });
         };
 
@@ -78,7 +80,6 @@
     <script src="./bower_components/angular-material/angular-material.js"></script>
     <script src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="./bower_components/query-string/query-string.js"></script>
-    <script src="./bower_components/angular-oauth2/dist/angular-oauth2.min.js"></script>
 
 
     <!-- App files -->
@@ -89,6 +90,7 @@
     <script src="./src/app/AppHomeController.js"></script>
 
     <script src="./src/app/authorization/AuthorizationService.js"></script>
+    <script src="./src/app/authorization/FacebookService.js"></script>
 
     <script src="./src/app/avalie/AvalieController.js"></script>
     <script src="./src/app/contribua/ContribuaController.js"></script>

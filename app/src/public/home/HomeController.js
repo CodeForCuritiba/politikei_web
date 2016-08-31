@@ -3,7 +3,7 @@
 
     var home = angular.module('home');
 
-    home.controller('HomeController', ['$scope', '$state', '$mdDialog', function ($scope, $state, $mdDialog) {
+    home.controller('HomeController', ['$scope', '$state', '$mdDialog', 'facebookService', function ($scope, $state, $mdDialog, facebookService) {
         var self = this;
 
         $scope.content_loaded = function () {
@@ -16,18 +16,12 @@
         };
 
         this.login_fb = function () {
-            FB.login(function (response) {
-                if (response.authResponse) {
-                    FB.api('/me', function (response) {                        
-                        //passar token API
-                        console.log(JSON.stringify(response));
-
-                        $state.go('home', { notify: false });
-                    });
-                } else {
-                    console.log('User cancelled login or did not fully authorize.');
-                }
-            }, {scope: 'email',return_scopes: true});
+            facebookService.loginRegister().then(function (response) {
+                console.log('login logged: ' + response.toString());
+                $state.go('home', { notify: false });
+            }, function () {
+                console.log('not logged: ' + error.toString());
+            });
         };
 
         $scope.status = '  ';

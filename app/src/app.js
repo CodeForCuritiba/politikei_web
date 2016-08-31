@@ -1,4 +1,4 @@
-function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, OAuthProvider) {
+function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
 
     $stateProvider
         .state('root', {
@@ -84,16 +84,10 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .backgroundPalette('pkDarkBlueGrey', {
             'default': '50'
         });
-
-    OAuthProvider.configure({
-        baseUrl: 'https://api.website.com',
-        clientId: 'CLIENT_ID',
-        clientSecret: 'CLIENT_SECRET' // optional
-    });
 }
 
-run.$inject = ['$rootScope', '$location', '$window', '$state'];
-function run($rootScope, $location, $window, $state) {
+run.$inject = ['$rootScope', '$location', '$window', '$state', 'facebookService'];
+function run($rootScope, $location, $window, $state, facebookService) {
     // initialise google analytics
     $window.ga('create', 'UA-83144910-1', 'auto');
 
@@ -106,36 +100,19 @@ function run($rootScope, $location, $window, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
 
-        console.log('=============== '+JSON.stringify(fromState));
-
-        //Validate login here
-        FB.getLoginStatus(function (response) {
-            console.log('=============== '+JSON.stringify(response.status));
-            if (!response.status || response.status !== 'connected') {
+        if (fromState.name !== 'demo') {
+            facebookService.isLogged().then(function (response) {
+                console.log('logged: ' + response.toString());
+            }, function () {
+                console.log('not logged');
                 event.preventDefault();
                 $state.go('^.^.demo', { notify: false });
-            }
-        });
-    });
-
-    //oauth2 error handler
-    $rootScope.$on('oauth:error', function (event, rejection) {
-        // Ignore `invalid_grant` error - should be catched on `LoginController`.
-        if ('invalid_grant' === rejection.data.error) {
-            return;
+            });
         }
-
-        // Refresh token when a `invalid_token` error occurs.
-        if ('invalid_token' === rejection.data.error) {
-            return OAuth.getRefreshToken();
-        }
-
-        // Redirect to `/login` with the `error_reason`.
-        return $window.location.href = '/login?error_reason=' + rejection.data.error;
     });
 }
 
-config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider', 'OAuthProvider'];
+config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
 
 function MainController($scope, $mdMedia, $state) {
     $scope.status = '  ';
@@ -146,7 +123,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'angular-oauth2'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'facebook'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);
