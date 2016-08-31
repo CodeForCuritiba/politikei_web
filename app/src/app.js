@@ -5,39 +5,39 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
             url: '/',
             controller: 'HomeController as home',
             templateUrl: '../src/public/home/launch_landing.html',
-            auth:'public',
+            auth: 'public',
         })
         .state('demo', {
             url: '/demo',
             controller: 'HomeController as home',
             templateUrl: '../src/public/home/index.html',
-            auth:'public'
+            auth: 'public'
         })
         .state('home', {
             url: '/home',
             controller: "AppHomeController as appHome",
             templateUrl: "../src/app/app-home.html",
-            auth:'public'
+            auth: 'private'
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
             templateUrl: "../src/app/proposicoes/view/index.html",
-            auth:'public'
+            auth: 'private'
         }).state('home.ranking', {
             url: "/ranking",
             controller: "RankingController as ranking",
             templateUrl: "../src/app/ranking/ranking.html",
-            auth:'public'
+            auth: 'private'
         }).state('home.avalie', {
             url: "/avalie",
             controller: "AvalieController as avalie",
             templateUrl: "../src/app/avalie/avalie.html",
-            auth:'public'
+            auth: 'private'
         }).state('home.duvidas', {
             url: "/duvidas",
             controller: "DuvidasController as duvidas",
             templateUrl: "../src/app/duvidas/duvidas.html",
-            auth:'public'
+            auth: 'private'
         });
     $urlRouterProvider.otherwise("/");
 
@@ -83,12 +83,11 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         })
         .backgroundPalette('pkDarkBlueGrey', {
             'default': '50'
-        })
-
+        });
 }
 
-run.$inject = ['$rootScope', '$location', '$window', '$state'];
-function run($rootScope, $location, $window, $state) {
+run.$inject = ['$rootScope', '$location', '$window', '$state', 'facebookService'];
+function run($rootScope, $location, $window, $state, facebookService) {
     // initialise google analytics
     $window.ga('create', 'UA-83144910-1', 'auto');
 
@@ -97,18 +96,23 @@ function run($rootScope, $location, $window, $state) {
         $window.ga('send', 'pageview', $location.path());
     });
 
+    //route access
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
-        
-        //Validate login here
-        event.preventDefault();
-        $state.go('^.^.root', {notify: false});
 
+        if (fromState.name !== 'demo') {
+            facebookService.isLogged().then(function (response) {
+                console.log('logged: ' + response.toString());
+            }, function () {
+                console.log('not logged');
+                event.preventDefault();
+                $state.go('^.^.demo', { notify: false });
+            });
+        }
     });
 }
 
 config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
-
 
 function MainController($scope, $mdMedia, $state) {
     $scope.status = '  ';
@@ -119,7 +123,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'facebook'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);

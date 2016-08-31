@@ -24,18 +24,18 @@
     <link href="assets/css/app-home.css" rel="stylesheet">
 
     <style type="text/css">
-    /**
+        /**
          * Hide when Angular is not yet loaded and initialized
          */
-
-    [ng\:cloak],
-    [ng-cloak],
-    [data-ng-cloak],
-    [x-ng-cloak],
-    .ng-cloak,
-    .x-ng-cloak {
-        display: none !important;
-    }
+        
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
     </style>
 
     <!-- Google Analytics -->
@@ -50,14 +50,38 @@
 </head>
 
 <body ng-controller="MainController as main" ng-cloak layout-fill class="fuck-css">
+
+    <!--Facebook API-->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId       : '1766554283585819',
+            xfbml       : true,
+            version     : 'v2.7',
+            status      :true,  
+            cookie      :true
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <section ui-view layout-fill></section>
     <!-- Bower components -->
-    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="./bower_components/angular-material/angular-material.js"></script>
-    <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="./bower_components/query-string/query-string.js"></script>
+
+
     <!-- App files -->
     <script src="./src/config.js"></script>
     <script src="./src/app.js"></script>
@@ -66,6 +90,7 @@
     <script src="./src/app/AppHomeController.js"></script>
 
     <script src="./src/app/authorization/AuthorizationService.js"></script>
+    <script src="./src/app/authorization/FacebookService.js"></script>
 
     <script src="./src/app/avalie/AvalieController.js"></script>
     <script src="./src/app/contribua/ContribuaController.js"></script>
