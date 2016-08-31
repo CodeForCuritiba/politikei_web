@@ -20,7 +20,7 @@
                 console.log('login logged: ' + response.toString());
                 $state.go('home', { notify: false });
             }, function () {
-                console.log('not logged: ' + error.toString());
+                console.log('not logged: ');
             });
         };
 
