@@ -3,7 +3,7 @@
 
     var home = angular.module('home');
 
-    home.controller('HomeController', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
+    home.controller('HomeController', ['$scope', '$state', '$mdDialog', 'facebookService', function ($scope, $state, $mdDialog, facebookService) {
         var self = this;
 
         $scope.content_loaded = function () {
@@ -12,6 +12,15 @@
                 $.material.init();
 
                 $.init_menu();
+            });
+        };
+
+        this.login_fb = function () {
+            facebookService.loginRegister().then(function (response) {
+                console.log('login logged: ' + response.toString());
+                $state.go('home', { notify: false });
+            }, function () {
+                console.log('not logged: ');
             });
         };
 
@@ -35,9 +44,9 @@
         };
 
         DialogController.$inject = ['$scope', '$mdDialog'];
-        
+
         function DialogController($scope, $mdDialog) {
-           $scope.submit = function (answer) {
+            $scope.submit = function (answer) {
                 $mdDialog.hide(answer);
             };
         };
