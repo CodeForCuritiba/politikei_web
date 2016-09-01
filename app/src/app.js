@@ -21,8 +21,8 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         }).state('home.proposicoes', {
             url: "/proposicoes",
             controller: "ProposicaoController as proposicoes",
-            templateUrl: "../src/app/proposicoes/view/index.html",
-            auth: 'private'
+            templateUrl: "../src/app/proposicoes/proposicoes.html",
+            auth:'private'
         }).state('home.ranking', {
             url: "/ranking",
             controller: "RankingController as ranking",
@@ -93,7 +93,9 @@ function run($rootScope, $location, $window, $state, facebookService) {
 
     // track pageview on state change
     $rootScope.$on('$stateChangeSuccess', function (event) {
-        $window.ga('send', 'pageview', $location.path());
+        if (document.location.hostname.search("politikei.org") !== -1) {
+            $window.ga('send', 'pageview', $location.path());
+        }
     });
 
     //route access
@@ -123,7 +125,7 @@ MainController.$inject = ["$scope", "$mdMedia", '$state'];
 
 
 var politikei = angular
-    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'facebook'])
+    .module('politikei', ['ui.router', 'ngMaterial', 'ngCookies', 'home', 'proposicoes', 'users', 'authorization', 'ranking', 'facebook'])
     .config(config)
     .run(run)
     .controller('MainController', MainController);

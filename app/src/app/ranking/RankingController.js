@@ -1,20 +1,23 @@
-(function(){
+(function () {
     'use strict';
 
     angular
-        .module('politikei')
+        .module('ranking')
         .controller('RankingController', RankingController)
 
-    RankingController.$inject = [];
+    RankingController.$inject = ['rankingService']
 
-    function RankingController(){
-        var vm = this;
-        
-        init();
-
-        function init(){
-        }
+    function RankingController(rankingService) {
+        var self = this;
+        self.ranks = [];
+        self.loaded = false;
+        rankingService
+            .mockRankingData()
+            .then(function (ranks) {
+                self.ranks = [].concat(ranks); //?
+                self.loaded = true;
+            });
 
     }
 
-}());
+} ());
