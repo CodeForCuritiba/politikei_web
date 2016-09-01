@@ -35,8 +35,6 @@
     transition: all 100ms ease-out 30ms;
 }
 
-/* Typography support coming in 0.8.0 */
-
 .avatar {
     position: relative;
     width: 54px;
@@ -90,11 +88,11 @@ button md-icon {
 }
 
 .proposicao md-card.favor {
-    border-left: thick solid green;
+    border-bottom: thick solid green;
 }
 
 .proposicao md-card.contra {
-    border-left: thick solid red;
+    border-bottom: thick solid red;
 }
 
 md-card {
@@ -126,3 +124,6 @@ md-sidenav.md-locked-open {
     min-width: 251px;
     max-width: 251px;
 }
+
+/* Ranking custom CSS
+*/

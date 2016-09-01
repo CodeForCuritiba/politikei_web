@@ -6,14 +6,14 @@
 <div ng-if="ranking.loaded">
     <div ng-repeat="rank in ranking.ranks">
         <md-card>
-            <md-card-content>
+            <md-card-header>
                 <div md-colors="{background:'primary'}" class="card-order-number">
                     {{$index+1}}
                 </div>
                 <md-card-avatar>
-                    <img src="{{proposicao.parlamentar.avatar_url}}" class="md-user-avatar" />
+                    <img src="{{rank.parlamentar.avatar_url}}" class="md-user-avatar" />
                 </md-card-avatar>
-            </md-card-content>
+            </md-card-header>
         </md-card>
         <!-- <p>{{rank.match_votos_favor}} | {{rank.match_votos_contra}}</p> -->
     </div>
