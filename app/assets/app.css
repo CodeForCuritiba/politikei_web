@@ -70,7 +70,7 @@ button md-icon {
 }
 
 .proposicao {
-    margin-bottom: 30px;
+    margin: 20px;
 }
 
 .proposicao-header {
@@ -99,6 +99,10 @@ md-card {
     background-color: #fff;
 }
 
+.proposicao md-card {
+    padding: 15px;
+}
+
 /* We can't set two different bg color on the default theme.
    So to make it easier, the color profile of the navigation menu is being set
    manyally.
@@ -125,12 +129,18 @@ md-sidenav.md-locked-open {
     max-width: 251px;
 }
 
+/* Inner page margin.
+*/
+.page {
+    margin: 20px;
+}
+
 /* Ranking custom CSS
 */
 .ranking {
+    margin: 20px;
     background-color: #fff;
-    margin: 40px;
-    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .rank-item {
     padding: 30px;

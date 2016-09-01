@@ -4,7 +4,7 @@
     </div>
 </div>
 <div ng-if="proposicoes.loaded">
-    <div layout="row" layout-xs="column">
+    <div class="page" layout-gt-sm="row" layout="column">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes">
             <div flex>
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
