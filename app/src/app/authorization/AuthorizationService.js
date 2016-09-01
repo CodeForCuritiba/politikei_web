@@ -10,7 +10,7 @@
 
     function AuthService($http, $q, userService) {
 
-        let url = '';
+        var url = '';
 
         /*
          *  @user {id:'email'
@@ -19,19 +19,19 @@
          *  @return {user.id: 'name', toke:'token'}
          */
         this.loginUser = function (user) {
-            return $http.post(url, user).success((data) => {
+            return $http.post(url, user).success(function(data) {
                 userService.save_user(data);
                 return data;
-            }).error((error) => {
+            }).error(function(error) {
                 return $q.reject(error);
             });
         };
 
         this.registerUser = function (user) {
-            return $http.post(url, user).success((data) => {
+            return $http.post(url, user).success(function(data) {
                 userService.save_user(data);
                 return data;
-            }).error((error) => {
+            }).error(function(error) {
                 return $q.reject(error);
             });
         }
