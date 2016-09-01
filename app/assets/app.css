@@ -36,15 +36,15 @@
 }
 
 .avatar {
-    position: relative;
+    /* does not work on IE and Edge */
+    object-fit: cover;
+    /* overflow hidden is not necessary in some browsers. */
+    overflow: hidden;
     width: 54px;
     height: 54px;
     border: 1px solid #ddd;
     border-radius: 50%;
-    display: inline-block;
-    overflow: hidden;
-    margin: 0px;
-    vertical-align: middle;
+    margin: 0 15px 0 0;
 }
 
 md-bottom-sheet md-icon {
@@ -127,3 +127,21 @@ md-sidenav.md-locked-open {
 
 /* Ranking custom CSS
 */
+.ranking {
+    background-color: #fff;
+    margin: 40px;
+    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+.rank-item {
+    padding: 30px;
+    border-bottom: 1px solid rgba(170, 170, 180, 0.5);
+}
+.card-order-number {
+    margin: 10px 30px 10px 15px;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+.perc {
+    height: 15px;
+    width: 33.3%;
+}

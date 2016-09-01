@@ -9,9 +9,11 @@
             <div flex>
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
                     <md-card-header>
-                        <md-card-avatar>
-                            <img src="{{proposicao.parlamentar.avatar_url}}" class="md-user-avatar" />
-                        </md-card-avatar>
+                        <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
+                             This may not work properly on old IE versions. A solution is to use a div
+                             with "background: cover" set or use a polyfill: https://github.com/jonathantneal/fitie
+                        -->
+                        <img class="avatar" src="{{proposicao.parlamentar.avatar_url}}"/>
                         <md-card-header-text>
                             <div layout="row">
                                 <div layout="column">
@@ -20,6 +22,7 @@
                                     <span md-colors="{color:'primary-500'}" class="md-subhead">Autor: {{proposicao.parlamentar.nome}}</span>
                                 </div>
                                 <span flex></span>
+                                <!-- Not defined in the design, also breaks md-title -->
                                 <!-- <div>
                                     <span class="md-caption">04/02/2016</span>
                                 </div> -->
