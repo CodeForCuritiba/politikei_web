@@ -23,7 +23,6 @@
                 if (response.authResponse) {
                     FB.api('/me', function (response) {
                         //passar token API
-                        console.log('resolve');
                         deferred.resolve(response);
                     });
                 } else {
@@ -53,10 +52,10 @@
 
             FB.getLoginStatus(function (response) {
                 if (response.status === 'connected') {
-                    console.log('isLogged: ' + JSON.stringify(response));
+                    console.log('isLogged: ' );
                     deferred.resolve(response);
                 } else {
-                    console.log('notLogged: ' + JSON.stringify(response));
+                    console.log('notLogged: ');
                     deferred.reject();
                 }
             }, true);

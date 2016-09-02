@@ -10,14 +10,12 @@
             $(function () {
                 // This command is used to initialize some elements and make them work properly
                 $.material.init();
-
                 $.init_menu();
             });
         };
 
         this.login_fb = function () {
             facebookService.loginRegister().then(function (response) {
-                console.log('login logged: ' + response.toString());
                 $state.go('home', { notify: false });
             }, function () {
                 console.log('not logged: ');

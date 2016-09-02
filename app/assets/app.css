@@ -155,3 +155,11 @@ md-sidenav.md-locked-open {
     height: 15px;
     width: 33.3%;
 }
+
+/*
+ *  Layout fix
+ */
+
+.heigth-fix {
+    position:absolute;
+}

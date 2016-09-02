@@ -104,7 +104,7 @@ function run($rootScope, $location, $window, $state, facebookService) {
 
         if (fromState.name !== 'demo') {
             facebookService.isLogged().then(function (response) {
-                console.log('logged: ' + response.toString());
+                console.log('logged: ');
             }, function () {
                 console.log('not logged');
                 event.preventDefault();
