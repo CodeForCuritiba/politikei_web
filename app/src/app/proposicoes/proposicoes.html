@@ -4,9 +4,9 @@
     </div>
 </div>
 <div ng-if="proposicoes.loaded">
-    <div class="page" layout-gt-sm="row" layout="column">
-        <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes">
-            <div flex>
+    <div class="" layout="column" layout-wrap layout-gt-md="row">
+        <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
+            <div >
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
