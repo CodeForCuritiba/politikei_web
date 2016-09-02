@@ -102,15 +102,13 @@ function run($rootScope, $location, $window, $state, facebookService) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.auth === 'public') return;
 
-        if (fromState.name !== 'demo') {
-            facebookService.isLogged().then(function (response) {
-                console.log('logged: ');
-            }, function () {
-                console.log('not logged');
-                event.preventDefault();
-                $state.go('^.^.demo', { notify: false });
-            });
-        }
+        facebookService.isLogged().then(function (response) {
+            console.log('logged: ');
+        }, function () {
+            console.log('not logged');
+            event.preventDefault();
+            $state.go('^.^.demo', { notify: false });
+        });
     });
 }
 
