@@ -21,15 +21,35 @@
                     </div>
                 </div>
 
-                <div flex="20" layout="row" layout-align="end center">
+                <div flex="20" layout="row" layout-align="center center">
                     <img src="../assets/img/icones/nav_projetos.png" width="24" height="21" style="margin-right: 10px;" />
                     <span md-colors="{color:'primary-500'}">{{rank.parlamentar.propostas_votadas}} projetos</span>
                 </div>
 
                 <div flex="40" layout="row" layout-align="end center">
-                    <div class="perc" md-colors="{background-color:'primary'}"></div>
-                    <div class="perc" md-colors="{background-color:'warn-80'}"></div>
-                    <div class="perc" md-colors="{background-color:'accent'}"></div>
+                    <div layout="column">
+                        <div flex="none">
+                            <div layout="row">
+                                <div flex="60" class="perc positivo"></div>
+                                <div flex="20" class="perc negativo"></div>
+                                <div flex="20" class="perc neutro"></div>
+                            </div>
+                        </div>
+                        <div flex="none">
+                            <div layout"row">
+                                <span flex>aaa</span>
+                                <span flex>bbb</span>
+                                <span flex>ccc</span>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div layout="row">
+                        <span flex>aaa</span>
+                        <span flex>bbb</span>
+                        <span flex>ccc</span>
+                    </div> -->
+                    <!-- </div> -->
                     <!-- <span md-color="{color:'primary-500'}">{{rank.perc_positivo}}</span> -->
                     <!-- <span md-color="{color:'md-warn'}">{{rank.perc_negativo}}</span> -->
                     <!-- <span md-color="{color:'accent'}">{{rank.perc_neutro}}</span> -->
