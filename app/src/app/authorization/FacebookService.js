@@ -21,10 +21,8 @@
             
             FB.login(function (response) {
                 if (response.authResponse) {
-                    FB.api('/me', function (response) {
                         //passar token API
                         deferred.resolve(response);
-                    });
                 } else {
                     deferred.reject('User cancelled login or did not fully authorize.');
                 }
