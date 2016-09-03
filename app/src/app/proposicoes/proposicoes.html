@@ -6,14 +6,14 @@
 <div ng-if="proposicoes.loaded">
     <div class="" layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
-            <div >
+            <div>
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div
                              with "background: cover" set or use a polyfill: https://github.com/jonathantneal/fitie
                         -->
-                        <img class="avatar" src="{{proposicao.parlamentar.avatar_url}}"/>
+                        <img class="avatar" src="{{proposicao.parlamentar.avatar_url}}" />
                         <md-card-header-text>
                             <div layout="row">
                                 <div layout="column">
@@ -32,10 +32,10 @@
                     <md-card-content>
                         <p>{{proposicao.resumo}}</p>
                     </md-card-content>
-                    <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row">
+                    <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row center-item">
                         <div layout-padding>
-                            <div layout="column" layout-align="begin begin">
-                                <div layout="row" layout-align="begin center" layout-margin>
+                            <div layout="column" layout-align="begin begin center-item">
+                                <div layout="row" layout-align="begin center" layout-margin class="center-prop-text">
                                     <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
                                 </div>
                                 <div>
@@ -50,7 +50,9 @@
                                         </span>
                                     </md-button>
                                 </div>
-                                <span flex></span>
+                                <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event)" style="margin-top: 10px;">
+                                    projeto completo
+                                </md-button>
                             </div>
                         </div>
                     </md-card-actions>
