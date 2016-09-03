@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('facebook', [])
+        .module('facebook', ['ngCookies', 'authorization'])
         .factory('facebookService', FacebookService)
 
-    FacebookService.$inject = ['$state', '$q']
+    FacebookService.$inject = ['$state', '$q', '$cookies', 'AuthService']
 
-    function FacebookService($state, $q) {
+    function FacebookService($state, $q, $cookies, AuthService) {
 
         return {
             getMyLastName: getMyLastName,
@@ -18,11 +18,15 @@
 
         function loginRegister() {
             var deferred = $q.defer();
-            
+
             FB.login(function (response) {
                 if (response.authResponse) {
-                        //passar token API
+                    var token = response.authResponse.accessToken;
+                    AuthService.authenticateUser(token).then(function (user) {
+                        //user.data.user;
+                        $cookies.put('fbToken', token);
                         deferred.resolve(response);
+                    });
                 } else {
                     deferred.reject('User cancelled login or did not fully authorize.');
                 }
@@ -48,26 +52,26 @@
         function isLogged() {
             var deferred = $q.defer();
 
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    console.log('isLogged: ' );
-                    deferred.resolve(response);
-                } else {
-                    console.log('notLogged: ');
-                    deferred.reject();
-                }
-            }, true);
+            var token = $cookies.get('fbToken');
+
+            AuthService.authenticateUser(token).then(function (user) {
+                deferred.resolve(true);
+            }, function (error) {
+                deferred.reject(false);
+            });
+
             return deferred.promise;
         }
 
         function logout() {
             isLogged().then(function () {
                 FB.logout(function (resp) {
+                    $cookies.remove('fbToken');
                     $state.go('^.^.demo', { notify: false });
                 });
             }, function () {
                 $state.go('^.^.demo', { notify: false });
-            })
+            });
         }
     }
 
