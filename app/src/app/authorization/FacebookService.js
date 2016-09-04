@@ -10,7 +10,6 @@
     function FacebookService($state, $q, $cookies, AuthService) {
 
         return {
-            getMyLastName: getMyLastName,
             isLogged: isLogged,
             loginRegister: loginRegister,
             logout: logout
@@ -35,30 +34,21 @@
             return deferred.promise;
         }
 
-        function getMyLastName() {
-            var deferred = $q.defer();
-            FB.api('/me', {
-                fields: 'last_name'
-            }, function (response) {
-                if (!response || response.error) {
-                    deferred.reject('Error occured');
-                } else {
-                    deferred.resolve(response);
-                }
-            });
-            return deferred.promise;
-        }
-
         function isLogged() {
             var deferred = $q.defer();
 
             var token = $cookies.get('fbToken');
 
-            AuthService.authenticateUser(token).then(function (user) {
-                deferred.resolve(true);
-            }, function (error) {
+            if (token) {
+                AuthService.authenticateUser(token).then(function (user) {
+                    deferred.resolve(true);
+                }, function (error) {
+                    deferred.reject(false);
+                });
+            } else {
                 deferred.reject(false);
-            });
+            }
+
 
             return deferred.promise;
         }

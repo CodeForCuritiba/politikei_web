@@ -14,9 +14,9 @@
 
 
         this.authenticateUser = function (token) {
-            return $http.get(url + token).success(function (data) {
+            return $http.get(url + token).then(function (data) {
                 return $q.resolve(data);
-            }).error(function (error) {
+            }, function (error) {
                 return $q.reject(error);
             });
         };

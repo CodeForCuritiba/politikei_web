@@ -1,4 +1,4 @@
-function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, $mdAriaProvider) {
 
     $stateProvider
         .state('root', {
@@ -84,6 +84,8 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .backgroundPalette('pkDarkBlueGrey', {
             'default': '50'
         });
+    
+    $mdAriaProvider.disableWarnings();
 }
 
 run.$inject = ['$rootScope', '$location', '$window', '$state', 'facebookService'];
@@ -112,7 +114,7 @@ function run($rootScope, $location, $window, $state, facebookService) {
     });
 }
 
-config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider'];
+config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider', '$mdAriaProvider'];
 
 function MainController($scope, $mdMedia, $state) {
     $scope.status = '  ';

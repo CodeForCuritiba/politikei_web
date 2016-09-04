@@ -1,8 +1,32 @@
 <md-dialog class="dialog-padding">
-    {{text}}
-    <div class="center-item">
-        <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event)" style="margin-top: 10px;">
-            projeto completo
-        </md-button>
-    </div>
+    <md-card-content>
+        <p>{{proposicao.teor}}</p>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row center-item">
+        <div layout-padding>
+            <div layout="column" layout-align="begin begin center-item">
+                <div layout="row" layout-align="begin center" layout-margin class="center-prop-text">
+                    <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
+                </div>
+                <div layout="column" layout-gt-md="row">
+                    <md-button class="md-primary" ng-click="votar_favor(proposicao)">
+                        <span class="md-caption"> A favor
+                                <md-icon class="thumb-up-btn">thumb_up</md-icon>
+                        </span>
+                    </md-button>
+                    <md-button ng-click="votar_neutro(proposicao)">
+                        <span class="md-caption">Neutro</span>
+                    </md-button>
+                    <md-button class="md-warn" ng-click="votar_contra(proposicao)">
+                        <span class="md-caption">Contra
+                            <md-icon class="thumb-down-btn">thumb_down</md-icon>
+                        </span>
+                    </md-button>
+                </div>
+                <md-button class="md-raised md-primary" ng-click="viewLink(proposicao)" style="margin-top: 10px;">
+                    link original
+                </md-button>
+            </div>
+        </div>
+    </md-card-actions>
 </md-dialog>

@@ -7,18 +7,19 @@
     <div class="" layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div>
-                <md-card ng-class="{favor: proposicao.voto_usuario == '2', contra: proposicao.voto_usuario == '1'}">
+                <md-card ng-class="{favor: proposicao.voto_usuario.voto == 's', contra: proposicao.voto_usuario.voto == 'n'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div
                              with "background: cover" set or use a polyfill: https://github.com/jonathantneal/fitie
                         -->
+                        <img class="avatar" src="{{proposicao.parlamentar.avatar_url}}" />
                         <md-card-header-text>
                             <div layout="row">
                                 <div layout="column">
                                     <!-- <span class="md-title">{{proposicao.tipo_descricao}}</span> -->
-                                    <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa.slice(0, 100)+'...'}}</span>
-                                    <span md-colors="{color:'primary-500'}" class="md-subhead">codigo: {{proposicao.codigo}}</span>
+                                    <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.tipo}} {{proposicao.nome}}</span>
+                                    <span md-colors="{color:'primary-500'}" class="md-subhead">Autor: {{proposicao.parlamentar.nome}}</span>
                                 </div>
                                 <span flex></span>
                                 <!-- Not defined in the design, also breaks md-title -->
@@ -29,7 +30,7 @@
                         </md-card-header-text>
                     </md-card-header>
                     <md-card-content>
-                        <p>{{proposicao.teor.slice(0, 500)+'...'}}</p>
+                        <p>{{proposicao.resumo}}</p>
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row center-item">
                         <div layout-padding>
@@ -37,14 +38,10 @@
                                 <div layout="row" layout-align="begin center" layout-margin class="center-prop-text">
                                     <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
                                 </div>
-                                <div layout="column"  layout-gt-md="row">
+                                <div>
                                     <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)">
                                         <span class="md-caption"> A favor
                                             <md-icon class="thumb-up-btn">thumb_up</md-icon>
-                                        </span>
-                                    </md-button>
-                                    <md-button ng-click="proposicoes.votar_neutro(proposicao)">
-                                        <span class="md-caption">Neutro
                                         </span>
                                     </md-button>
                                     <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)">
@@ -53,7 +50,7 @@
                                         </span>
                                     </md-button>
                                 </div>
-                                <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event, proposicao)" style="margin-top: 10px;">
+                                <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event)" style="margin-top: 10px;">
                                     projeto completo
                                 </md-button>
                             </div>

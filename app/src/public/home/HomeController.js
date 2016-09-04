@@ -15,11 +15,13 @@
         };
 
         this.login_fb = function () {
+
             facebookService.loginRegister().then(function (response) {
                 $state.go('home', { notify: false });
             }, function () {
                 console.log('not logged: ');
             });
+
         };
 
         $scope.status = '  ';
