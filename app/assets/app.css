@@ -163,3 +163,27 @@ md-sidenav.md-locked-open {
 .heigth-fix {
     position:absolute;
 }
+
+.center-item{
+    margin: 0 auto;
+}
+
+.center-prop-text{
+    margin: 8px auto;
+}
+
+.button-completo{
+    margin: 12px 0 0 0;
+}
+
+.dialog-padding {
+    padding: 20px;
+}
+
+.icon-logo{
+    padding-left: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 2px;
+
+}

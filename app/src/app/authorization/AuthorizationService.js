@@ -2,39 +2,24 @@
     'use strict';
 
     angular
-        .module('authorization', ['users'])
+        .module('authorization', [])
         .service('AuthService', AuthService);
 
 
-    AuthService.$inject = ['$http', '$q','userService'];
+    AuthService.$inject = ['$http', '$q'];
 
-    function AuthService($http, $q, userService) {
+    function AuthService($http, $q) {
 
-        var url = '';
+        var url = 'http://158.69.200.6/politikei_api/user/me?token=';
 
-        /*
-         *  @user {id:'email'
-         *         pswd:'pass'
-         *        }
-         *  @return {user.id: 'name', toke:'token'}
-         */
-        this.loginUser = function (user) {
-            return $http.post(url, user).success(function(data) {
-                userService.save_user(data);
-                return data;
-            }).error(function(error) {
+
+        this.authenticateUser = function (token) {
+            return $http.get(url + token).then(function (data) {
+                return $q.resolve(data);
+            }, function (error) {
                 return $q.reject(error);
             });
         };
-
-        this.registerUser = function (user) {
-            return $http.post(url, user).success(function(data) {
-                userService.save_user(data);
-                return data;
-            }).error(function(error) {
-                return $q.reject(error);
-            });
-        }
     }
 
 } ());
