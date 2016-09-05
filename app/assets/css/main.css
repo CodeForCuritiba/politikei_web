@@ -6,6 +6,11 @@ body {
   font-weight: 400;
   background: #fff;
 }
+
+i.fa {
+  padding-right: 10px;
+}
+
 .btn {
   font-size: 14px;
   font-weight: 400;
@@ -74,7 +79,7 @@ a:focus {
   transform: translate3d(-250px, 0, 0);
 }
 .navbar-fixed-top {
-  padding: 15px 0;
+  padding: 0px;
 }
 .affix {
   -webkit-animation-duration: 1s;
@@ -84,7 +89,7 @@ a:focus {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
   padding: 0!important;
-  background: #3f51b5 !important;
+  background: #354C5E !important;
 }
 .sticky-navigation .row {
   padding: 0;
@@ -197,7 +202,7 @@ a:focus {
   background: #fff;
 }
 .navbar .navbar-header {
-  padding: 13px 0;
+  padding: 0px;
 }
 .menu-icon {
   background: transparent;
@@ -214,13 +219,20 @@ a:focus {
   body.toggled {
     position: fixed;
   }
+  /* fix */
+  .navbar .navbar-header {
+    width: 120px;
+  }
+  .navbar-header img {
+      width: 150px;
+  }
 }
 .hero-area {
   background: url(../img/hero-area.jpg) no-repeat;
   background-size: cover;
   background-position: center bottom;
   color: #fff;
-text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   padding: 90px 0;
   height: 100%;
 }
@@ -267,6 +279,25 @@ text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
     font-size: 50px !important;
   }
 }
+
+/* Custom stuff */
+#login-button {
+    margin-top: 30px !important;
+}
+#description {
+    background-image: url("../img/textao_bg.png");
+    background-size: cover;
+}
+#description p {
+    padding: 15px;
+    margin: 0px 20px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Default stuff */
 #features {
   background: #fff;
 }
@@ -283,13 +314,13 @@ text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   line-height: 80px;
   border-radius: 50%;
   font-size: 36px;
-  color: #3f51b5;
+  color: #11ADA0;
 }
 #features .features h4 {
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: 700;
-  color: #3f51b5;
+  color: #11ADA0;
 }
 #features .features .features-text {
   padding-left: 80px;
@@ -434,15 +465,29 @@ text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   padding: 48px 0;
 }
 #cta {
-  background: #3f51b5;
+  background: #fff;
 }
 #cta .drawer {
   float: left;
   margin-right: 40px;
 }
 #cta .title-small {
-  color: #fff;
+  color: #000;
+  font-weight: 300;
 }
+#cta .btn {
+  font-size: 14px;
+  font-weight: 400;
+}
+#cta .btn-border {
+  background: #11ADA0;
+  border: 0px solid #fff;
+  color: #fff !important;
+}
+.btn-border:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .main-feature-gray {
   background: #ecf0f1;
 }

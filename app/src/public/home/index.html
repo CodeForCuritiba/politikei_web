@@ -1,46 +1,32 @@
 <div ui-view>
-    <div class="navbar navbar-invers menu-wrap">
-        <div class="navbar-header text-center">
-            <a class="navbar-brand logo-right" href="javascript:void(0)"><i class="mdi-image-timelapse"></i>Politikei</a>
-        </div>
-        <ul class="nav navbar-nav main-navigation">
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a ui-sref="home">Features</a></li>
-            <li><a href="#why">why</a></li>
-            <li><a href="#screenshot">Screenshots</a></li>
-            <li><a href="#testimonial">Testimonial</a></li>
-            <li><a href="#clients">Contact</a></li>
-        </ul>
-        <button class="close-button" id="close-button">Close Menu</button>
-    </div>
     <div class="content-wrap" ng-init="content_loaded()">
         <header class="hero-area" id="home">
             <div class="container">
                 <div class="col-md-12">
-                    <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="200">
+                    <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="300">
                         <div class="container">
                             <div class="navbar-header">
-                                <a class="logo-left " href="index.html"><i class="mdi-image-timelapse"></i>Politikei</a>
+                                <a class="logo-left" href="index.html"><img src="assets/img/logo_landing_header.png"></a>
                             </div>
                             <div class="navbar-right">
-                                <md-button class="md-raised md-primary" ng-click="home.login_fb()">Login</md-button>
-                                <!--<button class="menu-icon" id="open-button" display="none">
-                                    <i class="mdi-navigation-menu"></i>
-                                </button>-->
+                                <!-- <md-button id="login-button" class="md-raised md-primary md-hue-1" ng-click="home.login_fb()">Participe</md-button> -->
+                                <a id="login-button" class="btn btn-lg btn-border" href ng-click="home.login_fb()" target="0"><i class="fa fa-facebook-square"></i>Participe</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="contents text-right">
-                    <h1 class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">Politikei - A política nas suas mãos.</h1>
-                    <p class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">Acompanhe o trabalho dos seus vereadores e ajude na gestão da sua cidade.</p>
+                    <h1 class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">A política está nas suas mãos</h1>
+                    <p class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">ACOMPANHE O TRABALHO DOS SEUS VEREADORES E AJUDE NA GESTÃO DA SUA CIDADE</p>
                 </div>
+            </div>
         </header>
+
+        <!-- Entenda o Politikei -->
         <section id="features" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">Serviços</h1>
-                    <h2 class="section-subtitle wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">Com o Politikei...</h2>
+                    <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">ENTENDA O POLITIKEI</h1>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -124,6 +110,29 @@
                 </div>
             </div>
         </section>
+
+        <!-- Descrição Politikei -->
+        <section id="description" class="section">
+            <div class="container">
+                <div class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
+                    <p>Você já parou para pensar como seria a sua cidade  se as pessoas tivessem acesso direto à tudo que acontece na Câmara Municipal? Acha que os serviços seriam melhores, as ruas mais limpas e seguras, e o Governo mais eficiente? Nós acreditamos que sim, acreditamos que a transparência é uma das ferramentas mais poderosas para melhorar o Governo. E acima de tudo, acreditamos que se as pessoas tiverem as ferramentas certas, com um design amigável e informações claras, todos irão participar mais e cumprir com o seu papel na democracia.</p>
+                    <p>Então movimentamos muitas pessoas e organizações para criar esta ferramenta, e assim surgiu o Politikei: um site para ver as proposições na Câmara Municipal, posicionar-se à favor ou contra, e ver quais são os vereadores que pensam mais parecido com você. Nossa primeira versão é voltada especificamente para as Eleições Municipais de Curitiba, mas o nosso objetivo é criar um aplicativo de acompanhamento permanente. Estamos fazendo o projeto em código aberto, para que ele possa ser replicado em todas as cidades do Brasil.</p>
+                    <p>Somos apartidários e não temos fins lucrativos, apenas acreditamos no que deveria ser óbvio: que a tecnologia pode ser a melhor amiga da democracia. Vote, utilize, divulgue e apoie a nossa campanha, para juntos criarmos a Democracia 2.0!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facebook -->
+        <section id="cta">
+            <div class="container">
+                <div class="row text-center">
+                    <h2 class="title-small wow bounce" data-wow-duration="1000ms" data-wow-delay="300ms">Siga nossa página e fique por dentro das novidades!</h2>
+                    <a href="https://www.facebook.com/politikei" target="0" class="btn btn-lg btn-border"><i class="fa fa-facebook-official"></i> Seguir</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Democracia 2.0 -->
         <section id="why" class="section">
             <div class="container">
                 <div class="row">
@@ -132,32 +141,24 @@
                     </div>
                     <div class="col-md-8 col-sm-8 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <div class="pull-left content">
-                            <h1>Bem-vindo a democracia 2.0 </h1> 
-							
-                           
+                            <h1>Bem-vindo a democracia 2.0 </h1>
+
                             <ul class="list-item">
-                                <li><i class="mdi-action-done"></i>A política agora tem design amigável</li>
+                                <li><i class="mdi-action-done"></i>A política agora tem design acessível</li>
 								<li><i class="mdi-action-done"></i>Utilizando tecnologia de ponta</li>
 								<li><i class="mdi-action-done"></i>Desenvolvido de forma colaborativa</li>
-								<li><i class="mdi-action-done"></i>100% open source (codigo aberto) - visite nosso GitHub</li>
-                                <li><i class="mdi-action-done"></i>Politikei</li>
+								<li><i class="mdi-action-done"></i>100% open source (codigo aberto) - visite nosso <a href="https://github.com/codeforcuritiba">GitHub</a></li>
                             </ul>
-							<br> <br> <br>
-                             <h3>Usuários poderão exercer de forma plena a sua cidadania. </h3> 
+							<!-- <br> <br> <br>
+                             <h3>Usuários poderão exercer de forma plena a sua cidadania. </h3> -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="cta">
-            <div class="container">
-                <div class="row text-center">
-                    <h3 class="title-small wow bounce" data-wow-duration="1000ms" data-wow-delay="300ms">Siga nossa página e fique por dentro das novidades!</h3>
-                    <a href="https://www.facebook.com/politikei" target="0" class="btn btn-lg btn-border"><i class="fa fa-facebook-official"></i>  Seguir</a>
-                </div>
-            </div>
-        </section>
-        <section id="testimonial" class="section">
+
+        <!-- Media Cover (ainda ñ temos) -->
+        <!-- <section id="testimonial" class="section">
             <div class="container">
                 <div class="section-header text-center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
                     <h1 class="section-title">O que dizem de nós...</h1>
@@ -166,7 +167,7 @@
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
                         <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
+
                             <ol class="carousel-indicators">
                                 <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#testimonial-carousel" data-slide-to="1"></li>
@@ -196,39 +197,31 @@
                     </div>
                 </div>
             </div>
-        </section>
-       
+        </section> -->
+
+        <!-- Parceiros -->
         <section id="clients" class="section">
             <div class="container">
                 <div class="section-header text-center">
                     <h1 class="section-title wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">Parceiros</h1>
-                    <h2 class="section-subtitle wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">\o/</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="col-sm-offset-2 col-md-3 col-sm-12 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <div class="client-item-wrapper">
-                            <img src="assets/img/clients/img1.png" alt="">
+                            <img class="img-responsive" src="assets/img/parceiros/logo_code.png" alt="code for curitiba">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+                    <div class="col-sm-offset-2 col-md-3 col-sm-12 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
                         <div class="client-item-wrapper">
-                            <img src="assets/img/clients/img2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="700ms">
-                        <div class="client-item-wrapper">
-                            <img src="assets/img/clients/img3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="900ms">
-                        <div class="client-item-wrapper">
-                            <img src="assets/img/clients/img4.png" alt="">
+                            <img class="img-responsive" src="assets/img/parceiros/logo_primaveracidada.jpg" alt="primavera cidadã">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="contact">
+
+        <!-- Contato -->
+        <!-- <section id="contact">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -287,61 +280,24 @@
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6853.31334931688!2d149.5710983929677!3d-33.43399308961885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x63680231a1016da2!2sWestern+Region+Academy+of+Sport!5e0!3m2!1sen!2sbd!4v1436826340086" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
-        </div>
+        </div> -->
+
         <section id="footer">
             <div class="container">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <h3>Products</h3>
+                        <div class="col-sm-offset-2 col-md-3 col-sm-6 col-xs-12">
+                            <h3>Fale com o Politikei</h3>
                             <ul>
-                                <li><a href="http://wingthemes.com/">WingThemes</a>
-                                </li>
-                                <li><a href="http://graygrids.com/">Graygrids</a>
-                                </li>
-                                <li><a href="http://wpbean.com/">WPBean</a>
-                                </li>
-                                <li><a href="http://landingbow.com/">Landingbow</a>
-                                </li>
-                                <li><a href="http://freebiescircle.com/">FreebiesCicle</a>
+                                <li><a href="mailto:politikeiapp@gmail.com">politikeiapp@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <h3>FAQs</h3>
-                            <ul>
-                                <li><a href="#">Why choose us?</a>
-                                </li>
-                                <li><a href="#">Where we are?</a>
-                                </li>
-                                <li><a href="#">Fees</a>
-                                </li>
-                                <li><a href="#">Guarantee</a>
-                                </li>
-                                <li><a href="#">Discount</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <h3>About</h3>
-                            <ul>
-                                <li><a href="#">Career</a>
-                                </li>
-                                <li><a href="#">Partners</a>
-                                </li>
-                                <li><a href="#">Team</a>
-                                </li>
-                                <li><a href="#">Clients</a>
-                                </li>
-                                <li><a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <h3>Find us on</h3>
-                            <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a class="social" href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <div class="col-sm-offset-2 col-md-3 col-sm-6 col-xs-12">
+                            <h3>Encontre-nos</h3>
+                            <a class="social" href="https://www.facebook.com/politikei" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <!-- <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a class="social" href="#" target="_blank"><i class="fa fa-google-plus"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -351,19 +307,18 @@
                 <i class=" mdi-hardware-keyboard-arrow-up"></i>
             </a>
         </section>
-        <section id="copyright">
+
+        <!-- Desnecessário -->
+        <!-- <section id="copyright">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <p class="copyright-text">
-                            © Politikei 2015 All right reserved. Designed and Developed by
-                            <a href="http://graygrids.com/">
-                GrayGrids
-              </a>
+                            © Politikei 2016.
                         </p>
                     </div>
                 </div>
             </div>
-        </section>
-        </div>
+        </section> -->
     </div>
+</div>
