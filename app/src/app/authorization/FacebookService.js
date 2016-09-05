@@ -29,7 +29,7 @@
                 } else {
                     deferred.reject('User cancelled login or did not fully authorize.');
                 }
-            });
+            },{scope:"email"});
 
             return deferred.promise;
         }
