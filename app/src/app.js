@@ -4,7 +4,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .state('root', {
             url: '/',
             controller: 'HomeController as home',
-            templateUrl: '../src/public/home/launch_landing.html',
+            templateUrl: '../src/public/home/index.html',
             auth: 'public',
         })
         .state('demo', {
@@ -84,7 +84,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .backgroundPalette('pkDarkBlueGrey', {
             'default': '50'
         });
-    
+
     $mdAriaProvider.disableWarnings();
 }
 
