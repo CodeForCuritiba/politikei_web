@@ -7,7 +7,7 @@
     <div class="" layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div>
-                <md-card ng-class="{favor: proposicao.voto_usuario == '2', contra: proposicao.voto_usuario == '1', indeciso:proposicao.voto_usuario == '0'}">
+                <md-card ng-class="{favor: proposicao.voto_usuario.voto == '2', contra: proposicao.voto_usuario.voto == '1', indeciso:proposicao.voto_usuario.voto == '0'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div
@@ -38,16 +38,16 @@
                                     <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
                                 </div>
                                 <div layout="column"  layout-gt-md="row">
-                                    <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)">
+                                    <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)" ng-disabled="proposicao.disable">
                                         <span class="md-caption"> A favor
                                             <md-icon class="thumb-up-btn">thumb_up</md-icon>
                                         </span>
                                     </md-button>
-                                    <md-button ng-click="proposicoes.votar_neutro(proposicao)">
+                                    <md-button ng-click="proposicoes.votar_neutro(proposicao)" ng-disabled="proposicao.disable">
                                         <span class="md-caption">Indeciso
                                         </span>
                                     </md-button>
-                                    <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)">
+                                    <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)" ng-disabled="proposicao.disable">
                                         <span class="md-caption">Contra
                                             <md-icon class="thumb-down-btn">thumb_down</md-icon>
                                         </span>
