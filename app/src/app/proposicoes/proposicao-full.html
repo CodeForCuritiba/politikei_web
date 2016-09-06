@@ -1,4 +1,7 @@
 <md-dialog class="dialog-padding">
+    
+    <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
+    
     <md-card-content>
         <p>{{proposicao.teor}}</p>
     </md-card-content>
@@ -15,7 +18,7 @@
                         </span>
                     </md-button>
                     <md-button ng-click="votar_neutro(proposicao)">
-                        <span class="md-caption">Neutro</span>
+                        <span class="md-caption">Indeciso</span>
                     </md-button>
                     <md-button class="md-warn" ng-click="votar_contra(proposicao)">
                         <span class="md-caption">Contra

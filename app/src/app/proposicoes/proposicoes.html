@@ -7,7 +7,7 @@
     <div class="" layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div>
-                <md-card ng-class="{favor: proposicao.voto_usuario == '2', contra: proposicao.voto_usuario == '1'}">
+                <md-card ng-class="{favor: proposicao.voto_usuario == '2', contra: proposicao.voto_usuario == '1', indeciso:proposicao.voto_usuario == '0'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div
@@ -17,7 +17,7 @@
                             <div layout="row">
                                 <div layout="column">
                                     <!-- <span class="md-title">{{proposicao.tipo_descricao}}</span> -->
-                                    <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa.slice(0, 100)+'...'}}</span>
+                                    <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa}}</span>
                                     <span md-colors="{color:'primary-500'}" class="md-subhead">codigo: {{proposicao.codigo}}</span>
                                 </div>
                                 <span flex></span>
@@ -44,7 +44,7 @@
                                         </span>
                                     </md-button>
                                     <md-button ng-click="proposicoes.votar_neutro(proposicao)">
-                                        <span class="md-caption">Neutro
+                                        <span class="md-caption">Indeciso
                                         </span>
                                     </md-button>
                                     <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)">

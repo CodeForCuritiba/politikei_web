@@ -5,7 +5,10 @@
         </md-button>
         <img src="../assets/img/logo_horizontal_app3.png" class="icon-logo" alt="Politikei" />
         <!-- <h4>Faça sua pesquisa agora</h4> -->
-        <md-button class="md-raised md-primary" ng-click="appHome.login_logout()">Login/Logout</md-button>
+        <!--<md-button class="md-raised md-primary" ng-click="appHome.login_logout()">Login/Logout</md-button>-->
+        <span flex></span>
+        <span class="avatar-text"><img class="avatar" src="{{appHome.userPicture}}" /> {{appHome.userName}}</span>
+        
     </md-toolbar>
 
     <div layout="row" style="height: inherit;">
@@ -45,6 +48,10 @@
                 <md-list-item ng-click="appHome.open('contribua')">
                     <img src="../assets/img/icones/nav_faca_parte.png" width="21" height="21" />
                     <span>Contribua já!</span>
+                </md-list-item>
+
+                <md-list-item ng-click="appHome.login_logout()">
+                    <span>Sair</span>
                 </md-list-item>
             </md-list>
         </md-sidenav>

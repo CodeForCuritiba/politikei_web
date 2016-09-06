@@ -10,7 +10,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
         .state('demo', {
             url: '/demo',
             controller: 'HomeController as home',
-            templateUrl: '../src/public/home/index.html',
+            templateUrl: '../src/public/home/index_2.html',
             auth: 'public'
         })
         .state('home', {

@@ -42,9 +42,14 @@
     overflow: hidden;
     width: 54px;
     height: 54px;
-    border: 1px solid #ddd;
     border-radius: 50%;
-    margin: 0 15px 0 0;
+    margin: 0 5px 0 0;
+}
+
+.avatar-text{
+    margin: auto;
+    padding-right: 15px;
+    font-size: x-large;
 }
 
 md-bottom-sheet md-icon {
@@ -93,6 +98,10 @@ button md-icon {
 
 .proposicao md-card.contra {
     border-bottom: thick solid red;
+}
+
+.proposicao md-card.indeciso {
+    border-bottom: thick solid yellow;
 }
 
 md-card {
@@ -186,4 +195,8 @@ md-sidenav.md-locked-open {
     padding-bottom: 6px;
     padding-right: 2px;
 
+}
+
+.ementa-title{
+    margin: 20px auto;
 }

@@ -12,7 +12,43 @@
         return {
             isLogged: isLogged,
             loginRegister: loginRegister,
-            logout: logout
+            logout: logout,
+            getName: getName,
+            getPicture : getPicture
+        }
+
+        function getName() {
+            var deferred = $q.defer();
+            FB.api('/me', {
+                fields: ['first_name']
+            }, function (response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+
+        function getPicture() {
+            var deferred = $q.defer();
+            FB.api(
+                "/me/picture",
+                {
+                    "redirect": false,
+                    "type": "small"
+                },
+                function (response) {
+                    if (response && !response.error) {
+                        deferred.resolve(response);
+                    } else {
+                        deferred.reject(response);
+                    }
+                }
+            );
+
+            return deferred.promise;
         }
 
         function loginRegister() {
@@ -29,7 +65,7 @@
                 } else {
                     deferred.reject('User cancelled login or did not fully authorize.');
                 }
-            },{scope:"email"});
+            }, { scope: "email" });
 
             return deferred.promise;
         }
