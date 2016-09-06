@@ -19,11 +19,15 @@
                 });
             },
             votar: function(voto, id) {
-                var user_id = $userService.get();
-                return null/*$http({
+                return $http({
                     method: 'POST',
-                    url: app_config.server + '/proposicoes/votar/' + id + '?user_id=' + user_id + '&voto_usuario=' + voto + '&token=' + app_config.token
-                })*/
+                    url: 'http://158.69.200.6/politikei_api/vote/user',
+                    params: {
+                        token: $cookies.get('fbToken'),
+                        proposicao_id: id,
+                        voto:voto
+                    }
+                });
             },
             loadPublicProposicoes: function() {
                 return $q.when([{
