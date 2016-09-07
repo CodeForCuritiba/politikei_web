@@ -169,10 +169,21 @@ md-sidenav.md-locked-open {
     padding: 8px 20px;
     border-radius: 4px;
 }
-.perc { height: 7px; }
-.perc.positivo { background-color: #2dd382; }
-.perc.negativo { background-color: #ff5f33; }
-.perc.neutro { background-color: #efb900; }
+
+.perc p {
+    width: 40px;
+    padding: 5px 0px;
+    color: #fff;
+    border-radius: 2px;
+}
+.positivo p { margin: auto; text-align: left; }
+.negativo p { margin: auto; text-align: center; }
+.neutro p   { margin: auto; text-align: right; }
+
+.perc-div { height: 7px; }
+.positivo { background-color: #2dd382; }
+.negativo { background-color: #ff5f33; }
+.neutro   { background-color: #efb900; }
 
 /*
  *  Layout fix
