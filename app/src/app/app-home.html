@@ -3,17 +3,20 @@
         <md-button class="menu" ng-click="appHome.toggleMenu()" hide-gt-sm aria-label="Show User List">
             <md-icon md-svg-icon="menu" </md-icon>
         </md-button>
-        <img src="../assets/img/logo_white_small.png" class="icon-logo" alt="Politikei" />
+        <img hide-xs src="../assets/img/logo_white_small.png" class="icon-logo" alt="Politikei" />
         <!-- <h4>Faça sua pesquisa agora</h4> -->
         <!--<md-button class="md-raised md-primary" ng-click="appHome.login_logout()">Login/Logout</md-button>-->
         <span flex></span>
-        <span class="avatar-text"><img class="avatar" src="{{appHome.userPicture}}" /> {{appHome.userName}}</span>
-        
+        <div flex="none" class="user-menu">
+            <span class="avatar-text" >Olá, {{appHome.userName}}</span><img class="avatar" src="{{appHome.userPicture}}" />
+        </div>
+
     </md-toolbar>
 
     <div layout="row" style="height: inherit;">
         <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left">
             <md-list>
+                <img hide-gt-xs show-xs src="../assets/img/logo_white_small.png" class="icon-logo" alt="Politikei" />
                 <md-list-item>
                     <p>Navegue:</p>
                 </md-list-item>

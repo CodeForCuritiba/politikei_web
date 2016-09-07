@@ -4,7 +4,7 @@
     </div>
 </div>
 <div ng-if="proposicoes.loaded">
-    <div class="" layout="column" layout-wrap layout-gt-md="row">
+    <div layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div>
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == '2', contra: proposicao.voto_usuario.voto == '1', indeciso:proposicao.voto_usuario.voto == '0'}">
@@ -31,13 +31,13 @@
                     <md-card-content>
                         <p>{{proposicao.teor.slice(0, 500)+'...'}}</p>
                     </md-card-content>
-                    <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row center-item">
+                    <md-card-actions layout="row" layout-align="center center">
                         <div layout-padding>
-                            <div layout="column" layout-align="begin begin center-item">
-                                <div layout="row" layout-align="begin center" layout-margin class="center-prop-text">
+                            <div layout="column" layout-align="center">
+                                <div layout="row" layout-align="center">
                                     <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
                                 </div>
-                                <div layout="column"  layout-gt-md="row">
+                                <div layout="row">
                                     <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)" ng-disabled="proposicao.disable">
                                         <span class="md-caption"> A favor
                                             <md-icon class="thumb-up-btn">thumb_up</md-icon>
