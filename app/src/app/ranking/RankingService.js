@@ -18,7 +18,7 @@
                         token: $cookies.get('fbToken')
                     }
                 }).then(function successCallback(response) {
-                    console.log(response.data.ranking);
+                    //console.log(response.data.ranking);
                     return response.data.ranking;
                 });
             },

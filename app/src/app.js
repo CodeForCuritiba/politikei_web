@@ -105,9 +105,9 @@ function run($rootScope, $location, $window, $state, facebookService) {
         if (toState.auth === 'public') return;
 
         facebookService.isLogged().then(function (response) {
-            console.log('logged: ');
+            //console.log('logged: ');
         }, function () {
-            console.log('not logged');
+            //console.log('not logged');
             event.preventDefault();
             $state.go('^.^.demo', { notify: false });
         });

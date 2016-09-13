@@ -42,10 +42,10 @@
 
                 proposicao.voto_usuario.voto = '0';
                 proposicaoService.votar('0', proposicao.id).then(function (resp) {
-                    console.log(resp);
+                    //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
-                    console.log(err);
+                    //console.log(err);
                     proposicao.disable = false;
                 });
             }
@@ -64,10 +64,10 @@
 
                 proposicao.voto_usuario.voto = '2';
                 proposicaoService.votar('2', proposicao.id).then(function (resp) {
-                    console.log(resp);
+                    //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
-                    console.log(err);
+                    //console.log(err);
                     proposicao.disable = false;
                 });
             }
@@ -86,10 +86,10 @@
 
                 proposicao.voto_usuario.voto = '1';
                 proposicaoService.votar('1', proposicao.id).then(function (resp) {
-                    console.log(resp);
+                    //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
-                    console.log(err);
+                    //console.log(err);
                     proposicao.disable = false;
                 });
             }
@@ -112,9 +112,9 @@
                     fullscreen: true // Only for -xs, -sm breakpoints.
                 })
                     .then(function (answer) {
-                        console.log('You said the information was "' + answer + '".');
+                        //console.log('You said the information was "' + answer + '".');
                     }, function () {
-                        console.log('You cancelled the dialog.');
+                        //console.log('You cancelled the dialog.');
                     });
             };
 
