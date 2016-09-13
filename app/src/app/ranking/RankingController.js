@@ -12,7 +12,8 @@
         self.ranks = [];
         self.loaded = false;
         rankingService
-            .mockRankingData()
+            .loadRanking()
+            //.mockRankingData()
             .then(function (ranks) {
                 self.ranks = [].concat(ranks);
                 self.loaded = true;
