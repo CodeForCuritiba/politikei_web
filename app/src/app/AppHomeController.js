@@ -47,10 +47,10 @@
             var url = null;
 
             if (page === 'contribua') {
-                url = 'http://localhost:3000';
+                url = 'http://www.politikei.org';
             }
             if (page === 'sobre') {
-                url = 'http://localhost:3000';
+                url = 'http://www.politikei.org';
             }
             if (url !== null) {
                 $window.open(url);

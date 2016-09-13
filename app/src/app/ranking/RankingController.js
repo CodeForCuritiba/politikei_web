@@ -12,9 +12,9 @@
         self.ranks = [];
         self.loaded = false;
         rankingService
-            .loadRanking()
+            .mockRankingData()
             .then(function (ranks) {
-                self.ranks = [].concat(ranks); //?
+                self.ranks = [].concat(ranks);
                 self.loaded = true;
             });
 

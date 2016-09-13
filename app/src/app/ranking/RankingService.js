@@ -1,55 +1,94 @@
-(function() {
+(function () {
     'use strict';
 
     var ranking = angular.module('ranking');
 
     ranking.service('rankingService', ['$http', '$q', '$cookies', 'userService', 'app_config', RankingService]);
 
-    var token = '';
-    var server = 'http://158.69.200.6/politikei_api/vote/ranking?token=';
+    var server = 'http://158.69.200.6/politikei_api/vote/ranking';
 
     function RankingService($http, $q, $cookies, $userService, app_config) {
         // Promise-based API
         return {
-            loadRanking: function() {
+            loadRanking: function () {
                 return $http({
                     method: 'POST',
-                    url: server + $cookies.get('fbToken')
+                    url: server,
+                    data: {
+                        token: $cookies.get('fbToken')
+                    }
                 }).then(function successCallback(response) {
                     console.log(response.data.ranking);
                     return response.data.ranking;
                 });
             },
-            mockRankingData: function() {
+            mockRankingData: function () {
                 // Ranks:
                 var result = $q.when([
-                {
-                    parlamentar: {
-                        avatar_url: 'http://cicerocattani.com.br/wp-content/uploads/2015/03/jonny-Stica.jpg',
-                        nome: 'Johnny Stica',
-                        partido: 'PDL',
-                        numero: '123',
-                        propostas_votadas: 28
+                    {
+                        Nao: "50.00",
+                        NaoSei: "30.00",
+                        QtdeProposicoes: "5",
+                        Sim: "20.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Teste",
+                        partido_sigla: "CODE"
                     },
-                    match_votos_favor: 11,
-                    match_votos_contra: 12,
-                    match_proposicoes: 25,
-                    total_proposicoes: 30,
-                    perc_positivo: 30
-                },
-                {
-                    parlamentar: {
-                        avatar_url: 'http://cicerocattani.com.br/wp-content/uploads/2015/03/jonny-Stica.jpg',
-                        nome: 'Johnny Walker',
-                        partido: 'PDLs',
-                        numero: '1234',
-                        propostas_votadas: 24
+                    {
+                        Nao: "0.00",
+                        NaoSei: "60.00",
+                        QtdeProposicoes: "2",
+                        Sim: "40.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Teste",
+                        partido_sigla: "CODE"
                     },
-                    match_votos_favor: 6,
-                    match_votos_contra: 13,
-                    match_proposicoes: 22,
-                    total_proposicoes: 30
-                }]);
+                    {
+                        Nao: "30.00",
+                        NaoSei: "30.00",
+                        QtdeProposicoes: "2",
+                        Sim: "40.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Testolino",
+                        partido_sigla: "CODE"
+                    },
+                    {
+                        Nao: "0.00",
+                        NaoSei: "90.00",
+                        QtdeProposicoes: "2",
+                        Sim: "10.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Jose",
+                        partido_sigla: "CODE"
+                    },
+                    {
+                        Nao: "40.00",
+                        NaoSei: "60.00",
+                        QtdeProposicoes: "2",
+                        Sim: "0.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Potato",
+                        partido_sigla: "CODE"
+                    },
+                    {
+                        Nao: "34.00",
+                        NaoSei: "33.00",
+                        QtdeProposicoes: "2",
+                        Sim: "33.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Teste123",
+                        partido_sigla: "CODE"
+                    },
+                    {
+                        Nao: "30.00",
+                        NaoSei: "30.00",
+                        QtdeProposicoes: "2",
+                        Sim: "40.00",
+                        parlamentar_id: "1",
+                        parlamentar_nome: "Gsus",
+                        partido_sigla: "CODE"
+                    }
+                    ]);
 
                 return result;
             }

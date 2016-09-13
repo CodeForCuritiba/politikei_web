@@ -175,10 +175,11 @@ md-sidenav.md-locked-open {
     padding: 5px 0px;
     color: #fff;
     border-radius: 2px;
+    padding-left: 7px;
 }
-.positivo p { margin: auto; text-align: left; }
+.positivo p { margin: auto; text-align: center; }
 .negativo p { margin: auto; text-align: center; }
-.neutro p   { margin: auto; text-align: right; }
+.neutro p   { margin: auto; text-align: center; }
 
 .perc-div { height: 7px; }
 .positivo { background-color: #2dd382; }
