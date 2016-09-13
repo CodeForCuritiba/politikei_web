@@ -15,15 +15,15 @@
                         </div>
                         <img src="{{rank.parlamentar.avatar_url}}" class="avatar" />
                         <div flex layout="column">
-                            <span md-colors="{color:'primary-500'}" class="md-title">{{rank.parlamentar.nome}}</span>
-                            <span md-colors="{color:'accent'}" class="md-subhead">{{rank.parlamentar.partido}} - {{rank.parlamentar.numero}}</span>
+                            <span md-colors="{color:'primary-500'}" class="md-title">{{rank.parlamentar_nome}}</span>
+                            <span md-colors="{color:'accent'}" class="md-subhead">{{rank.partido_sigla}} - {{rank.parlamentar.numero}}</span>
                         </div>
                     </div>
                 </div>
 
                 <div flex="20" layout="row" layout-align="center center">
                     <img src="../assets/img/icones/nav_projetos.png" width="24" height="21" style="margin-right: 10px;" />
-                    <span md-colors="{color:'primary-500'}">{{rank.parlamentar.propostas_votadas}} projetos</span>
+                    <span md-colors="{color:'primary-500'}">{{rank.QtdeProposicoes}} projetos</span>
                 </div>
 
                 <div flex="40" layout="row" layout-align="end center">
