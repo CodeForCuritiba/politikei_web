@@ -3,20 +3,21 @@
 
     var ranking = angular.module('ranking');
 
-    ranking.service('rankingService', ['$http', '$q', 'userService', 'app_config', RankingService]);
+    ranking.service('rankingService', ['$http', '$q', '$cookies', 'userService', 'app_config', RankingService]);
 
     var token = '';
-    var server = '';
+    var server = 'http://158.69.200.6/politikei_api/vote/ranking?token=';
 
-    function RankingService($http, $q, $userService, app_config) {
+    function RankingService($http, $q, $cookies, $userService, app_config) {
         // Promise-based API
         return {
-            loadAllParlamentares: function() {
+            loadRanking: function() {
                 return $http({
-                    method: 'GET',
-                    url: app_config.server + 'ranking/'
+                    method: 'POST',
+                    url: server + $cookies.get('fbToken')
                 }).then(function successCallback(response) {
-                    return response.data.parlamentares;
+                    console.log(response.data.ranking);
+                    return response.data.ranking;
                 });
             },
             mockRankingData: function() {
