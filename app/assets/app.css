@@ -186,6 +186,10 @@ md-sidenav.md-locked-open {
 .negativo { background-color: #ff5f33; }
 .neutro   { background-color: #efb900; }
 
+.projetos {
+    margin: 15px 0;
+}
+
 /*
  *  Layout fix
  */
