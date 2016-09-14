@@ -20,15 +20,15 @@
                     </div>
                 </div>
 
-                <div flex="20" layout="row" layout-align="center center" class="projetos">
+                <!--<div flex="20" layout="row" layout-align="center center" class="projetos">
                     <img src="../assets/img/icones/nav_projetos.png" width="24" height="21" style="margin-right: 10px;" />
                     <span md-colors="{color:'primary-500'}">{{rank.QtdeProposicoes}} projetos</span>
-                </div>
+                </div>-->
 
                 <div flex="40" layout="row">
                     <div layout="column" layout-fill layout-align="center end">
                         <div flex="none" layout-fill>
-                            <div layout="row" layout-fill>
+                            <div layout="column" layout-gt-md="row" layout-fill>
                                 <div ng-if="rank.Sim>0" flex="none" style="width: {{rank.Sim}}%;" class="perc" id="perc-positivo">
                                     <div class="perc-div positivo"></div>
                                     <p class="positivo">{{rank.Sim | number:0}}%</p>
