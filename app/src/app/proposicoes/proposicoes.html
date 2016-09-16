@@ -7,7 +7,7 @@
     <div layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div>
-                <md-card ng-class="{favor: proposicao.voto_usuario.voto == '2', contra: proposicao.voto_usuario.voto == '1', indeciso:proposicao.voto_usuario.voto == '0'}">
+                <md-card ng-class="{favor: proposicao.voto_usuario.voto == '1', contra: proposicao.voto_usuario.voto == '0', indeciso:proposicao.voto_usuario.voto == '2'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div

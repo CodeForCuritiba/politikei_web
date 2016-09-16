@@ -34,14 +34,14 @@
                 if (!proposicao.voto_usuario) {
                     proposicao.voto_usuario = {};
                 }
-                if (proposicao.voto_usuario.voto == '2') {
+                if (proposicao.voto_usuario.voto == '1') {
                     proposicao.votos_favor = proposicao.votos_favor - 1;
-                } else if (proposicao.voto_usuario.voto == '1') {
+                } else if (proposicao.voto_usuario.voto == '0') {
                     proposicao.votos_contra = proposicao.votos_contra - 1;
                 }
 
-                proposicao.voto_usuario.voto = '0';
-                proposicaoService.votar('0', proposicao.id).then(function (resp) {
+                proposicao.voto_usuario.voto = '2';
+                proposicaoService.votar('2', proposicao.id).then(function (resp) {
                     //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
@@ -57,13 +57,13 @@
                 }
                 if (proposicao.voto_usuario.voto == null || proposicao.voto_usuario.voto == 0) {
                     proposicao.votos_favor = proposicao.votos_favor + 1;
-                } else if (proposicao.voto_usuario.voto == '1') {
+                } else if (proposicao.voto_usuario.voto == '0') {
                     proposicao.votos_contra = proposicao.votos_contra - 1;
                     proposicao.votos_favor = proposicao.votos_favor + 1;
                 }
 
-                proposicao.voto_usuario.voto = '2';
-                proposicaoService.votar('2', proposicao.id).then(function (resp) {
+                proposicao.voto_usuario.voto = '1';
+                proposicaoService.votar('1', proposicao.id).then(function (resp) {
                     //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
@@ -79,13 +79,13 @@
                 }
                 if (proposicao.voto_usuario.voto == null || proposicao.voto_usuario.voto == 0) {
                     proposicao.votos_contra = proposicao.votos_contra + 1;
-                } else if (proposicao.voto_usuario.voto == '2') {
+                } else if (proposicao.voto_usuario.voto == '1') {
                     proposicao.votos_contra = proposicao.votos_contra + 1;
                     proposicao.votos_favor = proposicao.votos_favor - 1;
                 }
 
-                proposicao.voto_usuario.voto = '1';
-                proposicaoService.votar('1', proposicao.id).then(function (resp) {
+                proposicao.voto_usuario.voto = '0';
+                proposicaoService.votar('0', proposicao.id).then(function (resp) {
                     //console.log(resp);
                     proposicao.disable = false;
                 }, function (err) {
