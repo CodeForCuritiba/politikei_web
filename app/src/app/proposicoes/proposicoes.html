@@ -6,7 +6,7 @@
 <div ng-if="proposicoes.loaded">
     <div layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
-            <div>
+            <div ng-if="proposicao.teor">
                 <md-card ng-class="{favor: proposicao.voto_usuario.voto == '1', contra: proposicao.voto_usuario.voto == '0', indeciso:proposicao.voto_usuario.voto == '2'}">
                     <md-card-header>
                         <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
