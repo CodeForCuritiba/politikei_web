@@ -6,6 +6,7 @@
     ranking.service('rankingService', ['$http', '$q', '$cookies', 'userService', 'app_config', RankingService]);
 
     var server = 'http://158.69.200.6/politikei_api/vote/ranking';
+    var candidato_url = 'http://158.69.200.6/politikei_api/parlamentary/';
 
     function RankingService($http, $q, $cookies, $userService, app_config) {
         // Promise-based API
@@ -20,6 +21,17 @@
                 }).then(function successCallback(response) {
                     //console.log(response.data.ranking);
                     return response.data.ranking;
+                });
+            },
+            loadCandidato: function (parlamentar_id) {
+                return $http({
+                    method: 'GET',
+                    url: candidato_url + parlamentar_id,
+                    params: {
+                        token: $cookies.get('fbToken')
+                    }
+                }).then(function successCallback(response) {
+                    return response.data;
                 });
             },
             mockRankingData: function () {

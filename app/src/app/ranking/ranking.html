@@ -29,24 +29,26 @@
         <!--Cards-->
         <div layout="column" ng-repeat="rank in ranking.ranks | orderBy: '-Sim'">
             <div class="rank-item" layout-gt-md="row" layout="column">
-
                 <div flex="40">
                     <div layout="row" layout-align="left center">
                         <div flex="none" md-colors="{background:'primary'}" class="card-order-number">
                             {{$index+1}}
                         </div>
                         <div flex layout="column">
-                            <span md-colors="{color:'primary-500'}" class="md-title">{{rank.nome}}</span>
+                            <div layout="row">
+                                <span md-colors="{color:'primary-500'}" class="md-title">{{rank.nome}}</span>
+                                <md-button title="Detalhes" aria-label="Detalhes" class="md-icon-button launch" ng-click="ranking.showCandidato($event, rank)">
+                                    <md-icon md-svg-icon="share"></md-icon>
+                                </md-button>
+                            </div>
                             <span md-colors="{color:'accent'}" class="md-subhead">{{rank.partido_sigla}}</span>
                         </div>
                     </div>
                 </div>
-
                 <!--<div flex="20" layout="row" layout-align="center center" class="projetos">
                     <img src="../assets/img/icones/nav_projetos.png" width="24" height="21" style="margin-right: 10px;" />
                     <span md-colors="{color:'primary-500'}">{{rank.QtdeProposicoes}} projetos</span>
                 </div>-->
-
                 <div flex="40" layout="row">
                     <div layout="column" layout-fill layout-align="center end">
                         <div flex="none" layout-fill>
@@ -59,7 +61,7 @@
                                     <div class="perc-div negativo"></div>
                                     <p class="negativo">{{ranking.percenhtualDiferente(rank)| number:0}}%</p>
                                 </div>
-                                <div ng-if="rank.indiferente>0"  flex="none" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
+                                <div ng-if="rank.indiferente>0" flex="none" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
                                     <div class="perc-div neutro"></div>
                                     <p class="neutro">{{ranking.percentualNeutro(rank)| number:0}}%</p>
                                 </div>

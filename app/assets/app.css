@@ -226,3 +226,15 @@ md-sidenav.md-locked-open {
 .ementa-title{
     margin: 20px auto;
 }
+
+
+.material-icons.green { color: green; }
+.material-icons.red { color: red; }
+.material-icons.yellow { color: yellow; }
+.material-icons.gray { color: gray; }
+
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
