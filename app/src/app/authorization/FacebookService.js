@@ -93,10 +93,10 @@
             isLogged().then(function () {
                 FB.logout(function (resp) {
                     $cookies.remove('fbToken');
-                    $state.go('^.^.demo', { notify: false });
+                    $state.go('root', { notify: false });
                 });
             }, function () {
-                $state.go('^.^.demo', { notify: false });
+                $state.go('root', { notify: false });
             });
         }
     }

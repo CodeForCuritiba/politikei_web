@@ -42,7 +42,7 @@ function config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemin
     $urlRouterProvider.otherwise("/");
 
     $locationProvider.html5Mode({
-        enabled: true,
+        enabled: false,
         requireBase: true
     });
 
@@ -109,7 +109,7 @@ function run($rootScope, $location, $window, $state, facebookService) {
         }, function () {
             //console.log('not logged');
             event.preventDefault();
-            $state.go('^.^.demo', { notify: false });
+            $state.go('', { notify: false });
         });
     });
 }
