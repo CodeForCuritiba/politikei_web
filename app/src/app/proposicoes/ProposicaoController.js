@@ -121,7 +121,9 @@
             DialogController.$inject = ['$scope', '$mdDialog', '$window', 'prop'];
 
             function DialogController($scope, $mdDialog, $window, prop) {
-
+                $scope.votar_favor = votar_favor;
+                $scope.votar_contra = votar_contra;
+                $scope.votar_neutro = votar_neutro;
                 $scope.proposicao = prop;
 
                 $scope.submit = function (answer) {
