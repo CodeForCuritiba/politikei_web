@@ -50,9 +50,9 @@
                     <span md-colors="{color:'primary-500'}">{{rank.QtdeProposicoes}} projetos</span>
                 </div>-->
                 <div flex="40" layout="row">
-                    <div layout="column" layout-fill layout-align="center end">
+                    <div layout="row" layout-fill layout-align="center end">
                         <div flex="none" layout-fill>
-                            <div layout="column" layout-gt-md="row" layout-fill>
+                            <div layout="row" layout-gt-md="row" layout-fill>
                                 <div ng-if="rank.igual>0" flex="none" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
                                     <div class="perc-div positivo"></div>
                                     <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
