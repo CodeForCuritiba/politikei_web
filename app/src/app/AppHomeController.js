@@ -14,20 +14,25 @@
         this.userPicture = '';
         init();
 
-        facebookService.getPicture().then(function (resp) {
-            vm.userPicture = resp.data.url;
-        }, function (err) {
-            console.log(err);
-        });
+        window.fbReady(function () {
+            facebookService.isLogged()
+                .then(function () {
+                    facebookService.getPicture().then(function (resp) {
+                        vm.userPicture = resp.data.url;
+                    }, function (err) {
+                        console.log(err);
+                    });
 
-        facebookService.getName().then(function (resp) {
-            vm.userName = resp.first_name;
-        }, function (err) {
-            console.log(err);
-        });
+                    facebookService.getName().then(function (resp) {
+                        vm.userName = resp.first_name;
+                    }, function (err) {
+                        console.log(err);
+                    });
+                });
+        })
 
         function init() {
-            $state.go('.proposicoes');
+            $state.go('home.proposicoes');
         }
 
         this.toggleMenu = function () {
