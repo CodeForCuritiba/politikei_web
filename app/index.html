@@ -53,14 +53,30 @@
 
     <!--Facebook API-->
     <script>
+        var toLoad = []
+        window.fbReady = function(func){
+            if( typeof func === 'function') {
+                if( window.FB ) {
+                    func.call(window)
+                } else {
+                    toLoad.push(func)
+                }
+            }
+        }
+
         window.fbAsyncInit = function() {
             FB.init({
-            appId       : '921102801310369',
-            xfbml       : true,
-            version     : 'v2.7',
-            status      :true,
-            cookie      :true
+                appId       : '921102801310369',
+                xfbml       : true,
+                version     : 'v2.7',
+                status      :true,
+                cookie      :true
             });
+
+            // Execute all the fbAsyncInit functions
+            toLoad.forEach(function(func){
+                func.call(window)
+            })
         };
 
         (function(d, s, id){
@@ -116,8 +132,6 @@
     <script src="assets/js/jquery.nav.js"></script>
     <script src="assets/js/smooth-on-scroll.js"></script>
     <script src="assets/js/smooth-scroll.js"></script>
-
-    <script src="assets/js/main.js"></script>
 
     <script src="./src/app/users/Users.js"></script>
     <script src="./src/app/users/UserService.js"></script>
