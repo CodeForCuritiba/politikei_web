@@ -1,17 +1,16 @@
 <md-dialog class="dialog-padding">
     
-    <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
     
-    <md-card-content>
-        <p>{{proposicao.teor}}</p>
+    <md-card-content >
+    <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
+        <div style="overflow: auto">
+            <p>{{proposicao.teor}}</p>
+        </div>
     </md-card-content>
-    <md-card-actions layout="row" layout-align="begin center" class="layout-align-begin-center layout-row center-item">
-        <div layout-padding>
-            <div layout="column" layout-align="begin begin center-item">
-                <!--<div layout="row" layout-align="begin center" layout-margin class="center-prop-text">
-                    <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
-                </div>-->
-                <div layout="column" layout-gt-md="row">
+    <md-card-actions layout="row" layout-align="begin center" style="margin-top: 40px;"   flex="grow">
+        
+            <div layout="column"  layout-align="center center"  flex="grow">
+                <div layout="row"" flex="grow" layout-align="begin center">
                     <md-button class="md-primary" ng-click="votar_favor(proposicao)">
                         <span class="md-caption"> A favor
                                 <md-icon class="thumb-up-btn">thumb_up</md-icon>
@@ -30,6 +29,6 @@
                     Proposição na Câmara
                 </md-button>
             </div>
-        </div>
+        
     </md-card-actions>
 </md-dialog>
