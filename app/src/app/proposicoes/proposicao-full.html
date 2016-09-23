@@ -1,34 +1,32 @@
 <md-dialog class="dialog-padding">
-    
-    
-    <md-card-content >
-    <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
+    <md-card-content>
+        <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
         <div style="overflow: auto">
             <p>{{proposicao.teor}}</p>
         </div>
     </md-card-content>
-    <md-card-actions layout="row" layout-align="begin center" style="margin-top: 40px;"   flex="grow">
-        
-            <div layout="column"  layout-align="center center"  flex="grow">
-                <div layout="row"" flex="grow" layout-align="begin center">
-                    <md-button class="md-primary" ng-click="votar_favor(proposicao)">
-                        <span class="md-caption"> A favor
-                                <md-icon class="thumb-up-btn">thumb_up</md-icon>
-                        </span>
-                    </md-button>
-                    <md-button ng-click="votar_neutro(proposicao)">
-                        <span class="md-caption">Indeciso</span>
-                    </md-button>
-                    <md-button class="md-warn" ng-click="votar_contra(proposicao)">
-                        <span class="md-caption">Contra
-                            <md-icon class="thumb-down-btn">thumb_down</md-icon>
-                        </span>
-                    </md-button>
-                </div>
-                <md-button class="md-raised md-primary" ng-click="viewLink(proposicao)" style="margin-top: 10px;">
-                    Proposição na Câmara
+    <md-card-actions layout="column" layout-align="begin center">
+        <div  flex="grow">
+            <div layout="column" layout-gt-sm="row">
+                <md-button class="md-primary" ng-click="votar_favor(proposicao)">
+                    <span class="md-caption"> A favor
+                    <md-icon class="thumb-up-btn">thumb_up</md-icon>
+                </span>
+                </md-button>
+                <md-button ng-click="votar_neutro(proposicao)">
+                    <span class="md-caption">Indeciso</span>
+                </md-button>
+                <md-button class="md-warn" ng-click="votar_contra(proposicao)">
+                    <span class="md-caption">Contra
+                    <md-icon class="thumb-down-btn">thumb_down</md-icon>
+                </span>
                 </md-button>
             </div>
-        
+        </div>
+        <div flex="grow">
+            <md-button class="md-raised md-primary" ng-click="viewLink(proposicao)">
+                Proposição na Câmara
+            </md-button>
+        </div>
     </md-card-actions>
 </md-dialog>
