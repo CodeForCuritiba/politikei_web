@@ -246,3 +246,10 @@ md-sidenav.md-locked-open {
     min-height: 100%;
     height: auto;
 }
+
+@media screen and (min-width: 960px) {
+    .fifthy {
+        width: 50%;
+    }
+}
+
