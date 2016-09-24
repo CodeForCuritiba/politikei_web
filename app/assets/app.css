@@ -238,3 +238,11 @@ md-sidenav.md-locked-open {
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+// Issue with safari and material 1.0 https://github.com/angular/material/issues/5492
+.fix-layout-fill {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
