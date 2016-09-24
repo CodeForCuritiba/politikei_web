@@ -24,8 +24,8 @@
         </div>
         <!--Cards-->
         <div layout="column" ng-repeat="rank in ranking.ranks | orderBy: '-Sim'">
-            <div class="rank-item" layout="column" layout-gt-sm="row" layout-align="space-between center" layout-align-gt-sm="center center">
-                <div class="fifthy" layout="row" layout-align="space-between center" layout-align-gt-sm="left center">
+            <div class="rank-item" layout="column" layout-gt-sm="row" layout-align="space-between center">
+                <div class="fifthy" layout="row" layout-align="space-between center">
                     <div md-colors="{background:'primary'}" class="card-order-number">
                         {{$index+1}}
                     </div>
