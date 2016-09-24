@@ -40,7 +40,7 @@
                     </div>
                 </div>
                     
-                <div layout="row" class="fifthy-fifthy" style="margin: 0; width: 100%; min-height: 100%; height: auto;" >
+                <div layout-gt-sm="row" layout="column" class="fifthy-fifthy" style="margin: 0; width: 100%; min-height: 100%; height: auto;" >
                     <div ng-if="rank.igual>0" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
                         <div class="perc-div positivo"></div>
                         <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
