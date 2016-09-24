@@ -25,7 +25,7 @@
         <!--Cards-->
         <div layout="column" ng-repeat="rank in ranking.ranks | orderBy: '-Sim'">
             <div class="rank-item" layout="column" layout-gt-sm="row" layout-align="space-between center">
-                <div class="fifthy" layout="row" layout-align="space-between center">
+                <div class="fifthy-fifthy" layout="row" layout-align="space-between center">
                     <div md-colors="{background:'primary'}" class="card-order-number">
                         {{$index+1}}
                     </div>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                     
-                <div layout="row" class="fifthy" style="margin: 0; width: 100%; min-height: 100%; height: auto;" >
+                <div layout="row" class="fifthy-fifthy" style="margin: 0; width: 100%; min-height: 100%; height: auto;" >
                     <div ng-if="rank.igual>0" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
                         <div class="perc-div positivo"></div>
                         <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
