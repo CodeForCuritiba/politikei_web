@@ -17,7 +17,17 @@
             .then(function(ranks) {
                 self.ranks = [].concat(ranks);
                 self.loaded = true;
-            });
+            }).then(function() {
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#container')))
+                    .clickOutsideToClose(true)
+                    .title('Politikei')
+                    .textContent('O Politikei é uma ferramenta experimental. Além disso encorajamos pesquisas mais aprofundadas para que cada cidadão possa exercer seu voto com responsabilidade e consciência.')
+                    .ariaLabel('Politikei')
+                    .ok('Endenti!')
+                );
+            });;
 
         self.percentualIgual = function(rank) {
             return Math.round(100 * rank.igual / (rank.total_votos_usuario - rank.neutro))

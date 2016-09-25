@@ -14,12 +14,12 @@
 
             $mdDialog.show(
                 $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#home')))
+                .parent(angular.element(document.querySelector('#container')))
                 .clickOutsideToClose(true)
                 .title('Bem-vindo')
                 .textContent('Bem-vindo ao Politikei! Se você é de Curitiba, temos uma ferramenta especial para lhe ajudar a saber quais candidatos a vereador(a) se posicionam de forma mais parecida com você! Para começar, clique em “Entrar" no canto superior direito.')
                 .ariaLabel('Bem-vindo')
-                .ok('Endenti')
+                .ok('Endenti!')
             );
 
         };

@@ -1,4 +1,3 @@
-
 /* Primary content area */
 
 #content {
@@ -121,22 +120,35 @@ md-card {
     padding: 15px;
 }
 
+
 /* We can't set two different bg color on the default theme.
    So to make it easier, the color profile of the navigation menu is being set
    manyally.
 */
-.nav-active { background-color: #2E4152; }
-md-list-item { color: white; }
-md-list-item img { margin-right: 8px; }
+
+.nav-active {
+    background-color: #2E4152;
+}
+
+md-list-item {
+    color: white;
+}
+
+md-list-item img {
+    margin-right: 8px;
+}
+
 md-list-item p {
     color: #11ADA0;
     text-transform: uppercase;
     font-weight: bold;
 }
 
+
 /* MD Sidenav size can't be changed using md classes,
    using flex breaks animations.
 */
+
 md-sidenav,
 md-sidenav.md-locked-open-add-active,
 md-sidenav.md-closed.md-locked-open-add-active,
@@ -147,23 +159,29 @@ md-sidenav.md-locked-open {
     max-width: 251px;
 }
 
+
 /* Inner page margin.
 */
+
 .page {
     margin: 20px;
 }
 
+
 /* Ranking custom CSS
 */
+
 .ranking {
     margin: 20px;
     background-color: #fff;
     box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 .rank-item {
     padding: 30px;
     border-bottom: 1px solid rgba(170, 170, 180, 0.5);
 }
+
 .card-order-number {
     margin: 10px 30px 10px 15px;
     padding: 8px 20px;
@@ -180,34 +198,48 @@ md-sidenav.md-locked-open {
     text-align: center;
 }
 
-.perc-div { height: 7px; }
-.positivo { background-color: #2dd382; }
-.negativo { background-color: #ff5f33; }
-.neutro   { background-color: #efb900; }
+.perc-div {
+    height: 7px;
+}
 
-.rank-sub { width: auto; }
+.positivo {
+    background-color: #2dd382;
+}
+
+.negativo {
+    background-color: #ff5f33;
+}
+
+.neutro {
+    background-color: #efb900;
+}
+
+.rank-sub {
+    width: auto;
+}
 
 .projetos {
     margin: 15px 0;
 }
+
 
 /*
  *  Layout fix
  */
 
 .heigth-fix {
-    position:absolute;
+    position: absolute;
 }
 
-.center-item{
+.center-item {
     margin: 0 auto;
 }
 
-.center-prop-text{
+.center-prop-text {
     margin: 8px auto;
 }
 
-.button-completo{
+.button-completo {
     margin: 12px 0 0 0;
 }
 
@@ -215,26 +247,55 @@ md-sidenav.md-locked-open {
     padding: 20px;
 }
 
-.icon-logo{
+.icon-logo {
     padding-left: 16px;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-right: 2px;
-
 }
 
-.ementa-title{
+.ementa-title {
     margin: 20px auto;
 }
 
+.material-icons.green {
+    color: green;
+}
 
-.material-icons.green { color: green; }
-.material-icons.red { color: red; }
-.material-icons.yellow { color: yellow; }
-.material-icons.gray { color: gray; }
+.material-icons.red {
+    color: red;
+}
 
+.material-icons.yellow {
+    color: yellow;
+}
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.gray {
+    color: gray;
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.md-dialog-content .hero-area {
+    background: url(../img/hero-area_mm.png) no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    color: #fff;
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
+    padding: 90px 0;
+    height: 100%;
+}
