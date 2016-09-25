@@ -1,4 +1,4 @@
-<md-dialog class="dialog-padding">
+<div class="dialog-padding">
     <md-card-content>
         <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
         <div style="overflow: auto">
@@ -6,7 +6,7 @@
         </div>
     </md-card-content>
     <md-card-actions layout="column" layout-align="begin center">
-        <div  flex="grow">
+        <div>
             <div layout="column" layout-gt-sm="row">
                 <md-button class="md-primary" ng-click="votar_favor(proposicao)">
                     <span class="md-caption"> A favor
@@ -23,10 +23,10 @@
                 </md-button>
             </div>
         </div>
-        <div flex="grow">
+        <div layout-wrap>
             <md-button class="md-raised md-primary" ng-click="viewLink(proposicao)">
                 Proposição na Câmara
             </md-button>
         </div>
     </md-card-actions>
-</md-dialog>
+</div>
