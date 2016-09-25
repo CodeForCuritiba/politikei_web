@@ -274,6 +274,7 @@ md-sidenav.md-locked-open {
     color: gray;
 }
 
+<<<<<<< HEAD
 .material-icons.md-18 {
     font-size: 18px;
 }
@@ -298,4 +299,21 @@ md-sidenav.md-locked-open {
     /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); */
     padding: 90px 0;
     height: 100%;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// Issue with safari and material 1.0 https://github.com/angular/material/issues/5492
+.fix-layout-fill {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+
+.fifthy-fifthy {
+    width: 100%;
 }

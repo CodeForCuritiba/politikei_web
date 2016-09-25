@@ -6,77 +6,53 @@
 <div ng-if="ranking.loaded" id="container">
     <div class="page ranking">
         <!--Header-->
-        <div class="rank-item" layout-gt-md="row" layout="column">
+        <div class="rank-item" layout="column">
             <div flex layout="column">
                 <p>Você e o candidato(a) votaram:</p>
-                <div layout="column" layout-fill layout-align="center end">
-                    <div flex="none" layout-fill>
-                        <div layout-gt-md="row" layout="column" layout-fill>
-                            <div flex class="perc" id="perc-positivo">
-                                <p class="positivo rank-sub" style="width: auto;">Igual</p>
-                            </div>
-                            <div flex class="perc" id="perc-negativo">
-                                <p class="negativo rank-sub" style="width: auto;">Diferente</p>
-                            </div>
-                            <div flex class="perc" id="perc-neutro">
-                                <p class="neutro rank-sub" style="width: auto;">Candidato(a) não se posicionou</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div layout-gt-sm="row" layout="column">
+                <div flex class="perc" id="perc-positivo">
+                    <p class="positivo rank-sub" style="width: auto;">Igual</p>
+                </div>
+                <div flex class="perc" id="perc-negativo">
+                    <p class="negativo rank-sub" style="width: auto;">Diferente</p>
+                </div>
+                <div flex class="perc" id="perc-neutro">
+                    <p class="neutro rank-sub" style="width: auto;">Candidato(a) não se posicionou</p>
                 </div>
             </div>
         </div>
         <!--Cards-->
         <div layout="column" ng-repeat="rank in ranking.ranks | orderBy: '-Sim'">
-            <div class="rank-item" layout-gt-md="row" layout="column">
-                <div flex="40">
-                    <div layout="row" layout-align="left center">
-                        <div flex="none" md-colors="{background:'primary'}" class="card-order-number">
-                            {{$index+1}}
-                        </div>
-                        <div flex layout="column">
-                            <div layout="row">
-                                <span md-colors="{color:'primary-500'}" class="md-title">{{rank.nome}}</span>
-                                <md-button title="Detalhes" aria-label="Detalhes" class="md-icon-button launch" ng-click="ranking.showCandidato($event, rank)">
-                                    <md-icon md-svg-icon="share"></md-icon>
-                                </md-button>
-                            </div>
-                            <span md-colors="{color:'accent'}" class="md-subhead">{{rank.partido_sigla}}</span>
-                        </div>
+            <div class="rank-item" layout="column" layout-gt-sm="row" layout-align="space-between center">
+                <div class="fifthy-fifthy" layout="row" layout-align="space-between center">
+                    <div md-colors="{background:'primary'}" class="card-order-number">
+                        {{$index+1}}
+                    </div>
+                    <div layout="column" layout-wrap>
+                        <span md-colors="{color:'primary-500'}" class="md-title">{{rank.nome}}</span>
+                        <span md-colors="{color:'accent'}" class="md-subhead">{{rank.partido_sigla}}</span>
+                    </div>
+                    <div>
+                        <md-button title="Detalhes" aria-label="Detalhes" class="md-icon-button launch" ng-click="ranking.showCandidato($event, rank)">
+                            <md-icon md-svg-icon="share"></md-icon>
+                        </md-button>
                     </div>
                 </div>
-                <!--<div flex="20" layout="row" layout-align="center center" class="projetos">
-                    <img src="../assets/img/icones/nav_projetos.png" width="24" height="21" style="margin-right: 10px;" />
-                    <span md-colors="{color:'primary-500'}">{{rank.QtdeProposicoes}} projetos</span>
-                </div>-->
-                <div flex="40" layout="row">
-                    <div layout="row" layout-fill layout-align="center end">
-                        <div flex="none" layout-fill>
-                            <div layout="row" layout-gt-md="row" layout-fill>
-                                <div ng-if="rank.igual>0" flex="none" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
-                                    <div class="perc-div positivo"></div>
-                                    <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
-                                </div>
-                                <div ng-if="rank.diferente>0" flex="none" style="width:  {{ranking.percenhtualDiferente(rank)}}%;" class="perc" id="perc-negativo">
-                                    <div class="perc-div negativo"></div>
-                                    <p class="negativo">{{ranking.percenhtualDiferente(rank)| number:0}}%</p>
-                                </div>
-                                <div ng-if="rank.indiferente>0" flex="none" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
-                                    <div class="perc-div neutro"></div>
-                                    <p class="neutro">{{ranking.percentualNeutro(rank)| number:0}}%</p>
-                                </div>
-                            </div>
-                        </div>
+                    
+                <div layout="row" class="fifthy-fifthy" style="margin: 0; width: 100%; min-height: 100%; height: auto;" >
+                    <div ng-if="rank.igual>0" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
+                        <div class="perc-div positivo"></div>
+                        <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
                     </div>
-                    <!-- <div layout="row">
-                        <span flex>aaa</span>
-                        <span flex>bbb</span>
-                        <span flex>ccc</span>
-                    </div> -->
-                    <!-- </div> -->
-                    <!-- <span md-color="{color:'primary-500'}">{{rank.perc_positivo}}</span> -->
-                    <!-- <span md-color="{color:'md-warn'}">{{rank.perc_negativo}}</span> -->
-                    <!-- <span md-color="{color:'accent'}">{{rank.perc_neutro}}</span> -->
+                    <div ng-if="rank.diferente>0" style="width:  {{ranking.percenhtualDiferente(rank)}}%;" class="perc" id="perc-negativo">
+                        <div class="perc-div negativo"></div>
+                        <p class="negativo">{{ranking.percenhtualDiferente(rank)| number:0}}%</p>
+                    </div>
+                    <div ng-if="rank.indiferente>0" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
+                        <div class="perc-div neutro"></div>
+                        <p class="neutro">{{ranking.percentualNeutro(rank)| number:0}}%</p>
+                    </div>
                 </div>
             </div>
             <!-- <p>{{rank.match_votos_favor}} | {{rank.match_votos_contra}}</p> -->
