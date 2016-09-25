@@ -227,7 +227,7 @@ a:focus {
       width: 150px;
   }
 }
-.hero-area {
+header.hero-area {
   background: url(../img/hero-area_mm.png) no-repeat;
   background-size: cover;
   background-position: center bottom;
