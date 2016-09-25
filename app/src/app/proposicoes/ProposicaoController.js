@@ -1,10 +1,10 @@
-(function () {
+(function() {
     'use strict';
 
     var politikei = angular.module('proposicoes');
 
     politikei.controller('ProposicaoController', ['proposicaoService', '$mdDialog',
-        function (proposicaoService, $mdDialog) {
+        function(proposicaoService, $mdDialog) {
             var self = this;
 
             self.selected = null;
@@ -18,10 +18,20 @@
 
             proposicaoService
                 .loadAllProposicoes()
-                .then(function (proposicoes) {
+                .then(function(proposicoes) {
                     self.proposicoes = [].concat(proposicoes);
                     self.selected = proposicoes[0];
                     self.loaded = true;
+                }).then(function() {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                        .parent(angular.element(document.querySelector('#container')))
+                        .clickOutsideToClose(true)
+                        .title('Proposições')
+                        .textContent('A Gazeta do Povo e o grupo Primavera Cidadã selecionaram as 16 proposições mais debatidas na Câmara Municipal de Curitiba, nesta última gestão. Você pode se posicionar sobre elas aqui nessa página, e em seguida o nosso site vai gerar um ranking mostrando quais candidatos (dos que se cadastraram conosco) se posicionaram de forma mais parecida com você.')
+                        .ariaLabel('Proposições')
+                        .ok('Endenti!')
+                    );
                 });
 
 
@@ -41,10 +51,10 @@
                 }
 
                 proposicao.voto_usuario.voto = '2';
-                proposicaoService.votar('2', proposicao.id).then(function (resp) {
+                proposicaoService.votar('2', proposicao.id).then(function(resp) {
                     //console.log(resp);
                     proposicao.disable = false;
-                }, function (err) {
+                }, function(err) {
                     //console.log(err);
                     proposicao.disable = false;
                 });
@@ -63,10 +73,10 @@
                 }
 
                 proposicao.voto_usuario.voto = '1';
-                proposicaoService.votar('1', proposicao.id).then(function (resp) {
+                proposicaoService.votar('1', proposicao.id).then(function(resp) {
                     //console.log(resp);
                     proposicao.disable = false;
-                }, function (err) {
+                }, function(err) {
                     //console.log(err);
                     proposicao.disable = false;
                 });
@@ -85,35 +95,35 @@
                 }
 
                 proposicao.voto_usuario.voto = '0';
-                proposicaoService.votar('0', proposicao.id).then(function (resp) {
+                proposicaoService.votar('0', proposicao.id).then(function(resp) {
                     //console.log(resp);
                     proposicao.disable = false;
-                }, function (err) {
+                }, function(err) {
                     //console.log(err);
                     proposicao.disable = false;
                 });
             }
 
             /*
-            *   Proposição Dialog
-            */
+             *   Proposição Dialog
+             */
 
-            this.showProposicao = function (ev, proposicao) {
+            this.showProposicao = function(ev, proposicao) {
                 $mdDialog.show({
-                    locals: {
-                        prop: proposicao
-                    },
-                    controller: DialogController,
-                    controllerAS: 'ctrl',
-                    templateUrl: '../../src/app/proposicoes/proposicao-full.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose: true,
-                    fullscreen: true // Only for -xs, -sm breakpoints.
-                })
-                    .then(function (answer) {
+                        locals: {
+                            prop: proposicao
+                        },
+                        controller: DialogController,
+                        controllerAS: 'ctrl',
+                        templateUrl: '../../src/app/proposicoes/proposicao-full.html',
+                        parent: angular.element(document.body),
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: true // Only for -xs, -sm breakpoints.
+                    })
+                    .then(function(answer) {
                         //console.log('You said the information was "' + answer + '".');
-                    }, function () {
+                    }, function() {
                         //console.log('You cancelled the dialog.');
                     });
             };
@@ -126,15 +136,15 @@
                 $scope.votar_neutro = votar_neutro;
                 $scope.proposicao = prop;
 
-                $scope.submit = function (answer) {
+                $scope.submit = function(answer) {
                     $mdDialog.hide();
                 };
 
-                $scope.viewLink = function (proposicao) {
+                $scope.viewLink = function(proposicao) {
                     $window.open(proposicao.link);
                 }
 
-                $scope.$on("$locationChangeStart", function (evt) {
+                $scope.$on("$locationChangeStart", function(evt) {
                     evt.preventDefault();
                     $mdDialog.hide();
                 });

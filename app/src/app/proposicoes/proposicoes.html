@@ -3,7 +3,7 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
 </div>
-<div ng-if="proposicoes.loaded">
+<div ng-if="proposicoes.loaded" id="container">
     <div layout="column" layout-wrap layout-gt-md="row">
         <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
             <div ng-if="proposicao.teor">
