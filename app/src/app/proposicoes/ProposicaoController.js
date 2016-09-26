@@ -60,7 +60,7 @@
                     //console.log(err);
                     proposicao.disable = false;
                 });
-                self.modal();
+                //self.modal();
             }
 
             function votar_favor(proposicao) {
@@ -84,7 +84,7 @@
                     //console.log(err);
                     proposicao.disable = false;
                 });
-                self.modal();
+                //self.modal();
             }
 
             function votar_contra(proposicao) {
@@ -108,7 +108,7 @@
                     //console.log(err);
                     proposicao.disable = false;
                 });
-                self.modal();
+                //self.modal();
             }
 
 
