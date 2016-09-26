@@ -31,7 +31,7 @@
                             .title('Proposições')
                             .textContent('A Gazeta do Povo e o grupo Primavera Cidadã selecionaram as 16 proposições mais debatidas na Câmara Municipal de Curitiba, nesta última gestão. Você pode se posicionar sobre elas aqui nessa página, e em seguida o nosso site vai gerar um ranking mostrando quais candidatos (dos que se cadastraram conosco) se posicionaram de forma mais parecida com você.')
                             .ariaLabel('Proposições')
-                            .ok('Endendi!')
+                            .ok('Entendi!')
                     );
                 });
 
@@ -121,7 +121,7 @@
                             .title('Proposições')
                             .textContent('Já terminou de se posicionar? Clique em “Ranking" para ver quais candidatos - dos que se cadastraram com a gente - se posicionaram de forma mais parecida com você.')
                             .ariaLabel('Proposições')
-                            .ok('Endendi!')
+                            .ok('Entendi!')
                     );
                 }
             }
@@ -174,6 +174,10 @@
                 $scope.proposicao = prop;
 
                 $scope.submit = function (answer) {
+                    $mdDialog.hide();
+                };
+
+                $scope.cancel = function (answer) {
                     $mdDialog.hide();
                 };
 

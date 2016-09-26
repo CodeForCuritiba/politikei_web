@@ -1,6 +1,15 @@
 <div class="dialog-padding">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{proposicao.ementa}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="./assets/svg/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
     <md-card-content>
-        <span md-colors="{color:'primary-500'}" class="md-title ementa-title">{{proposicao.ementa}}</span>
+        <span md-colors="{color:'primary-500'}" class="md-title ementa-title"></span>
         <div style="overflow: auto">
             <p>{{proposicao.teor}}</p>
         </div>

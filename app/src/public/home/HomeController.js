@@ -19,7 +19,7 @@
                 .title('Bem-vindo')
                 .textContent('Bem-vindo ao Politikei! Se você é de Curitiba, temos uma ferramenta especial para lhe ajudar a saber quais candidatos a vereador(a) se posicionam de forma mais parecida com você! Para começar, clique em “Entrar" no canto superior direito.')
                 .ariaLabel('Bem-vindo')
-                .ok('Endendi!')
+                .ok('Entendi!')
             );
 
         };
