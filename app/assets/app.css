@@ -101,15 +101,15 @@ button md-icon {
 }
 
 .proposicao md-card.favor {
-    border-bottom: thick solid green;
+    border-bottom: 30px solid green;
 }
 
 .proposicao md-card.contra {
-    border-bottom: thick solid red;
+    border-bottom: 30px solid red;
 }
 
 .proposicao md-card.indeciso {
-    border-bottom: thick solid yellow;
+    border-bottom: 30px solid yellow;
 }
 
 md-card {
