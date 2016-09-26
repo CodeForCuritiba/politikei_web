@@ -57,6 +57,9 @@
             if (page === 'sobre') {
                 url = 'http://www.politikei.org';
             }
+            if (page === 'cadastro') {
+                url = 'https://rennanchaves.typeform.com/to/LFsOjJ';
+            }
             if (url !== null) {
                 $window.open(url);
             }

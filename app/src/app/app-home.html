@@ -9,11 +9,9 @@
         <!--<md-button class="md-raised md-primary" ng-click="appHome.login_logout()">Login/Logout</md-button>-->
         <span flex></span>
         <div flex="none" class="user-menu">
-            <span class="avatar-text" >Olá, {{appHome.userName}}</span><img class="avatar" src="{{appHome.userPicture}}" />
+            <span class="avatar-text">Olá, {{appHome.userName}}</span><img class="avatar" src="{{appHome.userPicture}}" />
         </div>
-
     </md-toolbar>
-
     <div layout="row" style="height: inherit;">
         <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left">
             <md-list>
@@ -40,6 +38,9 @@
                 <md-list-item ng-click="appHome.open('sobre')">
                     <span>Sobre</span>
                 </md-list-item>
+                <md-list-item ng-click="appHome.open('cadastro')">
+                    <span>Você é candidato? Cadastre-se aqui</span>
+                </md-list-item>
                 <md-list-item ui-sref="home.avalie" ng-click="appHome.menuItemSelected('avalie')" ng-class="{ 'nav-active': 'avalie' == appHome.selected }">
                     <span>Avalie o Politikei</span>
                 </md-list-item>
@@ -53,15 +54,13 @@
                     <img src="../assets/img/icones/nav_faca_parte.png" width="21" height="21" />
                     <span>Contribua já!</span>
                 </md-list-item>-->
-
                 <md-list-item ng-click="appHome.login_logout()">
                     <span>Sair</span>
                 </md-list-item>
             </md-list>
         </md-sidenav>
-
         <md-content style="width: 100%;">
-            <div ui-view="" ></div>
+            <div ui-view=""></div>
         </md-content>
     </div>
 </section>
