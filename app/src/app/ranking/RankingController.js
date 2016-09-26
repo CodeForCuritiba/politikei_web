@@ -25,7 +25,7 @@
                     .title('Politikei')
                     .textContent('O Politikei é uma ferramenta experimental. Além disso encorajamos pesquisas mais aprofundadas para que cada cidadão possa exercer seu voto com responsabilidade e consciência.')
                     .ariaLabel('Politikei')
-                    .ok('Endendi!')
+                    .ok('Entendi!')
                 );
             });;
 
