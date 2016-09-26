@@ -23,7 +23,7 @@
                     .parent(angular.element(document.querySelector('#container')))
                     .clickOutsideToClose(true)
                     .title('Politikei')
-                    .textContent('O Politikei é uma ferramenta experimental. Além disso encorajamos pesquisas mais aprofundadas para que cada cidadão possa exercer seu voto com responsabilidade e consciência.')
+                    .textContent('Este Ranking faz uma comparação entre os seus posicionamentos e o dos candidatos, mostrando quais se posicionaram de forma mais parecida com você! Clique na flechinha cinza ao lado do nome de cada candidato(a) para saber mais sobre as propostas dele(a) e conferir a sua votação. Por fim, o Politikei é uma ferramenta experimental. Além disso, encorajamos pesquisas mais aprofundadas para que cada cidadão possa exercer seu voto com responsabilidade e consciência.')
                     .ariaLabel('Politikei')
                     .ok('Entendi!')
                 );
