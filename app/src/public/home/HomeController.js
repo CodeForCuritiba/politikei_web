@@ -12,6 +12,11 @@
                 $.material.init();
             });
 
+            // Verify if the user already has visited the site before
+            if (localStorage.hasVisited)
+                return
+
+            // Show welcome dialog
             $mdDialog.show(
                 $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#container')))
@@ -21,6 +26,8 @@
                 .ariaLabel('Bem-vindo')
                 .ok('Entendi!')
             );
+
+            localStorage.hasVisited = true
 
         };
 
