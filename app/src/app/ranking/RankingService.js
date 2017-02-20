@@ -5,8 +5,8 @@
 
     ranking.service('rankingService', ['$http', '$q', '$cookies', 'userService', 'app_config', RankingService]);
 
-    var server = 'http://158.69.200.6/politikei_api/vote/ranking';
-    var candidato_url = 'http://158.69.200.6/politikei_api/parlamentary/';
+    var server = 'http://158.69.200.6/politikei_api_eleicoes_2016/vote/ranking';
+    var candidato_url = 'http://158.69.200.6/politikei_api_eleicoes_2016/parlamentary/';
 
     function RankingService($http, $q, $cookies, $userService, app_config) {
         // Promise-based API

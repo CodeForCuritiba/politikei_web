@@ -5,7 +5,7 @@
 
     proposicoes.service('proposicaoService', ['$http', '$q', '$cookies', 'userService', 'app_config', ProposicaoService]);
 
-    var server = 'http://158.69.200.6/politikei_api/propositions?token=';
+    var server = 'http://158.69.200.6/politikei_api_eleicoes_2016/propositions?token=';
 
     function ProposicaoService($http, $q, $cookies, $userService, app_config) {
         // Promise-based API
@@ -21,7 +21,7 @@
             votar: function(voto, id) {
                 return $http({
                     method: 'POST',
-                    url: 'http://158.69.200.6/politikei_api/vote/user',
+                    url: 'http://158.69.200.6/politikei_api_eleicoes_2016/vote/user',
                     params: {
                         token: $cookies.get('fbToken'),
                         proposicao_id: id,

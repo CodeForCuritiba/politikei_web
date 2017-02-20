@@ -10,7 +10,7 @@
 
     function AuthService($http, $q) {
 
-        var url = 'http://158.69.200.6/politikei_api/user/me?token=';
+        var url = 'http://158.69.200.6/politikei_api_eleicoes_2016/user/me?token=';
 
 
         this.authenticateUser = function (token) {
