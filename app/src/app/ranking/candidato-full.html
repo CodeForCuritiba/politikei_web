@@ -12,19 +12,19 @@
             <p>E-mail: {{candidato.email}}</p>
             <div layout="column">
                 <div class="rank-item" layout-gt-md="row" layout="column">
-                    <div flex="40" layout="row">
-                        <div layout="column" layout-fill layout-align="center end">
-                            <div flex="none" layout-fill>
-                                <div layout="column" layout-gt-md="row" layout-fill>
-                                    <div ng-if="rank.igual>0" flex="none" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
+                    <div layout="row">
+                        <div layout="column" layout-align="center begin" class="fifthy-fifthy">
+                            <div>
+                                <div layout="column" layout-gt-md="row" >
+                                    <div ng-if="rank.igual>0" style="width: {{ranking.percentualIgual(rank)}}%;" class="perc" id="perc-positivo">
                                         <div class="perc-div positivo"></div>
                                         <p class="positivo">{{ranking.percentualIgual(rank) | number:0}}%</p>
                                     </div>
-                                    <div ng-if="rank.diferente>0" flex="none" style="width:  {{ranking.percenhtualDiferente(rank)}}%;" class="perc" id="perc-negativo">
+                                    <div ng-if="rank.diferente>0" style="width:  {{ranking.percenhtualDiferente(rank)}}%;" class="perc" id="perc-negativo">
                                         <div class="perc-div negativo"></div>
                                         <p class="negativo">{{ranking.percenhtualDiferente(rank)| number:0}}%</p>
                                     </div>
-                                    <div ng-if="rank.indiferente>0" flex="none" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
+                                    <div ng-if="rank.indiferente>0" style="width: {{ranking.percentualNeutro(rank)}}%" class="perc" id="perc-neutro">
                                         <div class="perc-div neutro"></div>
                                         <p class="neutro">{{ranking.percentualNeutro(rank)| number:0}}%</p>
                                     </div>
@@ -34,21 +34,23 @@
                     </div>
                 </div>
             </div>
-            <md-toolbar ng-if="candidato.propostas" class="md-theme-light">
-                <h2 class="md-toolbar-tools">
-			      <span>Propostas do candidato</span>
-			    </h2>
-            </md-toolbar>
-            <md-content flex layout-padding ng-if="candidato.propostas">
-                <p>Propostas: {{candidato.propostas}}</p>
-            </md-content>
-            <md-toolbar class="md-theme-light">
-                <h2 class="md-toolbar-tools">
-			      <span>Confira como este candidato se posicionou</span>
-			    </h2>
-            </md-toolbar>
-            <md-content>
-                <md-list>
+            <div layout="column">
+                <md-toolbar ng-if="candidato.propostas" class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Propostas do candidato</span>
+                    </h2>
+                </md-toolbar>
+                <md-content layout-padding ng-if="candidato.propostas">
+                    <p>Propostas: {{candidato.propostas}}</p>
+                </md-content>
+            </div>
+            <div layout="column">
+                <md-toolbar class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Confira como este candidato se posicionou</span>
+                    </h2>
+                </md-toolbar>
+                <md-list style="background-color: rgb(233,242,241);">
                     <md-list-item class="md-3-line" ng-repeat="voto in votos">
                         <div class="md-list-item-text">
                             <h3>{{voto.codigo}}</h3>
@@ -60,7 +62,7 @@
                         <md-divider md-inset ng-if="!$last"></md-divider>
                     </md-list-item>
                 </md-list>
-            </md-content>
+            </div>
         </md-card-content>
     </div>
 </md-dialog>
