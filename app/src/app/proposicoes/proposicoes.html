@@ -4,62 +4,135 @@
     </div>
 </div>
 <div ng-if="proposicoes.loaded" id="container">
-    <div layout="column" layout-wrap layout-gt-md="row">
-        <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
-            <div ng-if="proposicao.teor">
-                <md-card ng-class="{favor: proposicao.voto_usuario.voto == '1', contra: proposicao.voto_usuario.voto == '0', indeciso:proposicao.voto_usuario.voto == '2'}">
-                    <md-card-header>
-                        <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
+    <div layout="row" layout-wraps>
+
+        <div layout="column">
+            <md-toolbar class="md-scroll-shrink">
+                <div class="md-toolbar-tools md-scroll-shrink">Câmara</div>
+            </md-toolbar>
+            <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
+                <div ng-if="proposicao.teor">
+                    <md-card ng-class="{favor: proposicao.voto_usuario.voto == '1', contra: proposicao.voto_usuario.voto == '0', indeciso:proposicao.voto_usuario.voto == '2'}">
+                        <md-card-header>
+                            <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
                              This may not work properly on old IE versions. A solution is to use a div
                              with "background: cover" set or use a polyfill: https://github.com/jonathantneal/fitie
                         -->
-                        <md-card-header-text>
-                            <div layout="row">
-                                <div layout="column">
-                                    <!-- <span class="md-title">{{proposicao.tipo_descricao}}</span> -->
-                                    <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa}}</span>
-                                    <span md-colors="{color:'primary-500'}" class="md-subhead">codigo: {{proposicao.codigo}}</span>
-                                </div>
-                                <span flex></span>
-                                <!-- Not defined in the design, also breaks md-title -->
-                                <!-- <div>
+                            <md-card-header-text>
+                                <div layout="row">
+                                    <div layout="column">
+                                        <!-- <span class="md-title">{{proposicao.tipo_descricao}}</span> -->
+                                        <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa}}</span>
+                                        <span md-colors="{color:'primary-500'}" class="md-subhead">codigo: {{proposicao.codigo}}</span>
+                                    </div>
+                                    <span flex></span>
+                                    <!-- Not defined in the design, also breaks md-title -->
+                                    <!-- <div>
                                     <span class="md-caption">04/02/2016</span>
                                 </div> -->
-                            </div>
-                        </md-card-header-text>
-                    </md-card-header>
-                    <md-card-content>
-                        <p>{{proposicao.teor.slice(0, 500)+'...'}}</p>
-                    </md-card-content>
-                    <md-card-actions layout="row" layout-align="center center">
-                        <div layout-padding>
-                            <div layout="column" layout-align="center">
-                                <!--<div layout="row" layout-align="center">
+                                </div>
+                            </md-card-header-text>
+                        </md-card-header>
+                        <md-card-content>
+                            <p>{{proposicao.teor.slice(0, 500)+'...'}}</p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="center center">
+                            <div layout-padding>
+                                <div layout="column" layout-align="center">
+                                    <!--<div layout="row" layout-align="center">
                                     <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
                                 </div>-->
-                                <div layout="column" layout-gt-md="row">
-                                    <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)" ng-disabled="proposicao.disable">
-                                        <span class="md-caption"> A favor
+                                    <div layout="column" layout-gt-md="row">
+                                        <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption"> A favor
                                             <md-icon class="thumb-up-btn">thumb_up</md-icon>
                                         </span>
-                                    </md-button>
-                                    <md-button ng-click="proposicoes.votar_neutro(proposicao)" ng-disabled="proposicao.disable">
-                                        <span class="md-caption">Indeciso
+                                        </md-button>
+                                        <md-button ng-click="proposicoes.votar_neutro(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption">Indeciso
                                         </span>
-                                    </md-button>
-                                    <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)" ng-disabled="proposicao.disable">
-                                        <span class="md-caption">Contra
+                                        </md-button>
+                                        <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption">Contra
                                             <md-icon class="thumb-down-btn">thumb_down</md-icon>
                                         </span>
+                                        </md-button>
+                                    </div>
+                                    <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event, proposicao)" style="margin-top: 10px;">
+                                        projeto completo
                                     </md-button>
                                 </div>
-                                <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event, proposicao)" style="margin-top: 10px;">
-                                    projeto completo
-                                </md-button>
                             </div>
-                        </div>
-                    </md-card-actions>
-                </md-card>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+        <!--##########################-->
+
+        <div layout="column">
+
+            <md-toolbar>
+                <div class="md-toolbar-tools">Casa civil</div>
+            </md-toolbar>
+
+            <div class="proposicao" ng-repeat="proposicao in proposicoes.proposicoes" flex="auto" flex-gt-md="45">
+                <div ng-if="proposicao.teor">
+                    <md-card ng-class="{favor: proposicao.voto_usuario.voto == '1', contra: proposicao.voto_usuario.voto == '0', indeciso:proposicao.voto_usuario.voto == '2'}">
+                        <md-card-header>
+                            <!-- Avatar class uses css attribute "object-fit: cover;" to center and clip img .
+                             This may not work properly on old IE versions. A solution is to use a div
+                             with "background: cover" set or use a polyfill: https://github.com/jonathantneal/fitie
+                        -->
+                            <md-card-header-text>
+                                <div layout="row">
+                                    <div layout="column">
+                                        <!-- <span class="md-title">{{proposicao.tipo_descricao}}</span> -->
+                                        <span md-colors="{color:'primary-500'}" class="md-title">{{proposicao.ementa}}</span>
+                                        <span md-colors="{color:'primary-500'}" class="md-subhead">codigo: {{proposicao.codigo}}</span>
+                                    </div>
+                                    <span flex></span>
+                                    <!-- Not defined in the design, also breaks md-title -->
+                                    <!-- <div>
+                                    <span class="md-caption">04/02/2016</span>
+                                </div> -->
+                                </div>
+                            </md-card-header-text>
+                        </md-card-header>
+                        <md-card-content>
+                            <p>{{proposicao.teor.slice(0, 500)+'...'}}</p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="center center">
+                            <div layout-padding>
+                                <div layout="column" layout-align="center">
+                                    <!--<div layout="row" layout-align="center">
+                                    <span class="md-caption">A favor: {{proposicao.votos_favor}}  Contra: {{proposicao.votos_contra}}</span>
+                                </div>-->
+                                    <div layout="column" layout-gt-md="row">
+                                        <md-button class="md-primary" ng-click="proposicoes.votar_favor(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption"> A favor
+                                            <md-icon class="thumb-up-btn">thumb_up</md-icon>
+                                        </span>
+                                        </md-button>
+                                        <md-button ng-click="proposicoes.votar_neutro(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption">Indeciso
+                                        </span>
+                                        </md-button>
+                                        <md-button class="md-warn" ng-click="proposicoes.votar_contra(proposicao)" ng-disabled="proposicao.disable">
+                                            <span class="md-caption">Contra
+                                            <md-icon class="thumb-down-btn">thumb_down</md-icon>
+                                        </span>
+                                        </md-button>
+                                    </div>
+                                    <md-button class="md-raised md-primary" ng-click="proposicoes.showProposicao($event, proposicao)" style="margin-top: 10px;">
+                                        projeto completo
+                                    </md-button>
+                                </div>
+                            </div>
+                        </md-card-actions>
+                    </md-card>
+                </div>
             </div>
         </div>
     </div>
